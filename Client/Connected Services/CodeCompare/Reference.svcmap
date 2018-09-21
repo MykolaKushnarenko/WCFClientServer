@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f1b38c04-c27c-4323-a08b-9918e0532ef8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:5339/ServiceContract.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceContract.xsd" MetadataType="Schema" ID="c0c3d780-474c-4351-9718-257469096331" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceContract1.xsd" MetadataType="Schema" ID="ec06130c-b14b-46d1-a7f0-9ff80646a96b" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceContract2.xsd" MetadataType="Schema" ID="5c42c829-9e3d-4240-868f-d0d5daac7640" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServiceContract3.xsd" MetadataType="Schema" ID="a3042682-fe0d-4bc9-9538-d6135e820310" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceContract.disco" MetadataType="Disco" ID="b4e97200-a075-4eec-ba75-f26b28643b3d" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?disco" />
+    <MetadataFile FileName="ServiceContract.wsdl" MetadataType="Wsdl" ID="a6f95a24-fc2b-4d02-b1f6-aad4a5ec1de0" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

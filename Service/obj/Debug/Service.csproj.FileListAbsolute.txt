@@ -1,0 +1,12 @@
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\Service.dll.config
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\Service.dll
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\Service.pdb
+C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.csprojAssemblyReference.cache
+C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.dll
+C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.pdb
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\DataBasesUtil.dll
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\AnalysisCode.dll
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\DataBasesUtil.pdb
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\AnalysisCode.pdb
+C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.csproj.CopyComplete
