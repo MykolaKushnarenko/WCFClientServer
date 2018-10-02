@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using System.Threading.Tasks;
 using DataBasesUtil;
 using Service.DateObjectSender;
+using FullAnelysisRos;
 
 namespace Service
 {
@@ -58,6 +54,7 @@ namespace Service
                 string s = ""; /*JsonConvert.SerializeObject(_allCompileType);*/
                 return _allCompileType;
             });
+            DetailsAnalysis ver = new DetailsAnalysis("123");
             return result;
         }
 
@@ -74,7 +71,6 @@ namespace Service
                 _resultCompare.TokkingMainCode = _db.GetMainCodeList();
                 _resultCompare.TokkingChildCode = _db.GetChildCodeList();
             }
-
             return _resultCompare; /*JsonConvert.SerializeObject(_resultCompare);*/
         }
 
