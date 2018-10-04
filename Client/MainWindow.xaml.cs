@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Client.CodeCompare;
 using Client.WinPage;
+using Ionic.Zip;
 
 
 namespace Client
@@ -28,9 +29,9 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
-            GridContentAction.Children.Add(new AddingSubmit(Result, false));
-            Visibility = Visibility.Hidden;
             client = new ServiceContractClient();
+            GridContentAction.Children.Add(new AddingSubmit(Result, false, client));
+            Visibility = Visibility.Hidden;
             AutificationWindow();
         }
 
@@ -64,11 +65,11 @@ namespace Client
             {
                 case 0:
                     GridContentAction.Children.Clear();
-                    GridContentAction.Children.Add(new AddingSubmit(Result, false));
+                    GridContentAction.Children.Add(new AddingSubmit(Result, false, client));
                     break;
                 case 1:
                     GridContentAction.Children.Clear();
-                    GridContentAction.Children.Add(new AddingSubmit(Result, true));
+                    GridContentAction.Children.Add(new AddingSubmit(Result, true, client));
                     break;
                 case 2:
                     GridContentAction.Children.Clear();

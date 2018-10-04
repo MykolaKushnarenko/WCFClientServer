@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using Ionic.Zip;
 
 namespace Service.DateObjectSender
 {
@@ -13,6 +14,10 @@ namespace Service.DateObjectSender
         public string CompileType { get; set; }
         [DataMember]
         public bool IsSearch { get; set; }
+        [DataMember]
+        public bool IsAllAnalysis { get; set; }
+        [DataMember ]
+        public byte[] Solution { get; set; }
         [DataMember]
         public string FileMane { get; set; }
         [DataMember]

@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using System.Web.Hosting;
+using System.Xml;
 using DataBasesUtil;
 using Service.DateObjectSender;
 using FullAnelysisRos;
+using Ionic.Zip;
 
 namespace Service
 {
@@ -11,11 +15,36 @@ namespace Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select ServiceContract.svc or ServiceContract.svc.cs at the Solution Explorer and start debugging.
     public class ServiceContract : IServiceContract
     {
-        
 
+        private ZipFile _zip;
         private List<string> _allCompileType = new List<string>();
         private ResultCompareObject _resultCompare = new ResultCompareObject();
         private DBUtil _db = new DBUtil();
+        private static string _path = HostingEnvironment.MapPath("~/Document/");
+
+        private void ExportFromZip(string path, string filePath)
+        {
+
+            using (_zip = ZipFile.Read(filePath))
+            {
+                foreach (ZipEntry file in _zip)
+                {
+                    file.Extract(path);
+                }
+            }
+        }
+        private void CreateZipFromSream(byte[] zipFile)
+        {
+            string guid = $"{Guid.NewGuid()}";
+            Directory.CreateDirectory(_path + guid);
+            string fullPath = $"{_path}{guid}\\{guid}.zip";
+            using (FileStream file = new FileStream(fullPath, FileMode.Create))
+            {
+                file.Write(zipFile,0,zipFile.Length);
+            }
+            ExportFromZip(_path + guid, fullPath);
+
+        }
         public string GetData(string value)
         {
             return string.Format("You entered: {0}", value);
@@ -54,12 +83,13 @@ namespace Service
                 string s = ""; /*JsonConvert.SerializeObject(_allCompileType);*/
                 return _allCompileType;
             });
-            DetailsAnalysis ver = new DetailsAnalysis("123");
+            //DetailsAnalysis ver = new DetailsAnalysis("123");
             return result;
         }
 
         public async Task<ResultCompareObject> AddCode(AddingCodeObject param)
         {
+            CreateZipFromSream(param.Solution);
             bool isOver = await _db.AddingSubmit(param.Name, param.Description, param.CompileType, param.Code, param.IsSearch, param.FileMane);
             if (param.IsSearch)
             {

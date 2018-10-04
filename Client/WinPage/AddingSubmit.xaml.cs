@@ -1,21 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Client.CodeCompare;
-using Client.SenderObject;
+using Client.ObjectPararm;
 using Microsoft.Win32;
 
 namespace Client.WinPage
@@ -30,12 +20,14 @@ namespace Client.WinPage
         private string _path;
         private ResultCompareObject _resultCompare;
         private List<string> _codeList;
-        public AddingSubmit(Action<ResultCompareObject> methodResult, bool isSearch)
+        private ServiceContractClient _client;
+        public AddingSubmit(Action<ResultCompareObject> methodResult, bool isSearch, ServiceContractClient client)
         {
             _swichToResutl = methodResult;
             _resultCompare = new ResultCompareObject();
             _codeList = new List<string>();
             _search = isSearch;
+            _client = client;
             InitializeComponent();
             PrintCompilName(CsharpLanguage.Content.ToString());
         }
@@ -73,10 +65,11 @@ namespace Client.WinPage
             //string result = await getCompilName.SendToServer();
             //if (result == null) return;
             //List<string> typeCompl = JsonConvert.DeserializeObject<List<string>>(result);
-            //foreach (var typeCompil in typeCompl)
-            //{
-            //    CompilName.Items.Add(typeCompil);
-            //}
+            string[] compileType =_client.GetComipeType(lang);
+            foreach (var typeCompil in compileType)
+            {
+                CompilName.Items.Add(typeCompil);
+            }
 
         }
         private void AddFile_OnClick(object sender, RoutedEventArgs e)
@@ -115,7 +108,8 @@ namespace Client.WinPage
             {
                 lang = (string)JavaLanguage.Content;
             }
-            LoadWindow load = new LoadWindow(NameAuthor.Text, Description.Text, typeCompiler, _search, GetCode(), FileName, ref _resultCompare, CompareMy.IsChecked ?? true);
+            LoadWindowParam param = new LoadWindowParam(NameAuthor.Text, Description.Text, typeCompiler, _search, GetCode(), FileName, ref _resultCompare, CompareMy.IsChecked ?? true, _client); 
+            LoadWindow load = new LoadWindow(param);
             load.ShowDialog();
             if (_search && !(CompareMy.IsChecked ?? true))
             {

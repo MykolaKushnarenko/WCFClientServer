@@ -86,3 +86,6 @@ C:\Users\nikok\source\repos\WCFClientServer\Client\obj\Debug\Client.csproj.CoreC
 C:\Users\nikok\source\repos\WCFClientServer\Client\obj\Debug\Client.csproj.CopyComplete
 C:\Users\nikok\source\repos\WCFClientServer\Client\obj\Debug\Client.exe
 C:\Users\nikok\source\repos\WCFClientServer\Client\obj\Debug\Client.pdb
+C:\Users\nikok\source\repos\WCFClientServer\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\nikok\source\repos\WCFClientServer\Client\bin\Debug\DotNetZip.dll
+C:\Users\nikok\source\repos\WCFClientServer\Client\bin\Debug\DotNetZip.xml

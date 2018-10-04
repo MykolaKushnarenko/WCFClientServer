@@ -38,10 +38,16 @@ namespace Client.CodeCompare {
         private string FileManeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsAllAnalysisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsSearchField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] SolutionField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -119,6 +125,19 @@ namespace Client.CodeCompare {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsAllAnalysis {
+            get {
+                return this.IsAllAnalysisField;
+            }
+            set {
+                if ((this.IsAllAnalysisField.Equals(value) != true)) {
+                    this.IsAllAnalysisField = value;
+                    this.RaisePropertyChanged("IsAllAnalysis");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsSearch {
             get {
                 return this.IsSearchField;
@@ -140,6 +159,19 @@ namespace Client.CodeCompare {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Solution {
+            get {
+                return this.SolutionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SolutionField, value) != true)) {
+                    this.SolutionField = value;
+                    this.RaisePropertyChanged("Solution");
                 }
             }
         }

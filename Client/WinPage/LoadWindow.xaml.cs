@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Client.CodeCompare;
+using Client.ObjectPararm;
 using Client.SenderObject;
+using Ionic.Zip;
 
 namespace Client.WinPage
 {
@@ -21,56 +24,56 @@ namespace Client.WinPage
     /// </summary>
     public partial class LoadWindow : Window
     {
-        private readonly string _name;
-        private readonly string _description;
-        private readonly string _typeCompile;
-        private readonly string _path;
-        private readonly bool _isSearch;
-        private readonly byte[] _code;
-        private readonly string _fileName;
-        private ResultCompareObject _resultCompare;
-        private readonly bool _compareLocal;
-        public LoadWindow(string name, string description, string type, bool isSearch, byte[] code, string Filename, ref ResultCompareObject result, bool compareLocal)
+        private LoadWindowParam _param;
+        public LoadWindow(LoadWindowParam param)
         {
             InitializeComponent();
-            _name = name;
-            _code = code;
-            _fileName = Filename;
-            _description = description;
-            _resultCompare = result;
-            _typeCompile = type;
-            _isSearch = isSearch;
-            _compareLocal = compareLocal;
+            _param = param;
             Load();
         }
         private async void Load()
         {
-            //AddingCodeObject sendParams = new AddingCodeObject()
-            //{
-            //    Name = _name,
-            //    Description = _description,
-            //    CompileType = _typeCompile,
-            //    IsSearch = _isSearch,
-            //    FileMane = _fileName,
-            //    Code = _code,
-            //    CompareLocal = _compareLocal
+            MemoryStream memoryStream;
+            using (memoryStream = new MemoryStream())
+            {
+                using (ZipFile zip = new ZipFile())
+                {
+                    zip.AddDirectory(@"C:\Users\nikok\source\repos\Epam");
+                    zip.Save(memoryStream);
+                }
 
-            //};
+                memoryStream.Seek(0, SeekOrigin.Begin);
+            }
+
+            AddingCodeObject sendParams = new AddingCodeObject()
+            {
+                Name = _param.Name,
+                Description = _param.Description,
+                CompileType = _param.TypeCompile,
+                IsSearch = _param.IsSearch,
+                FileMane = _param.FileName,
+                Code = _param.Code,
+                CompareLocal = _param.CompareLocal,
+                Solution = memoryStream.ToArray()
+
+            };
             //DataExchangeWithServer getCompilName = new DataExchangeWithServer("AddCode", "POST", JsonConvert.SerializeObject(sendParams), "application/json", true);
             //string result = await getCompilName.SendToServer();
             //if (result == null) return;
             //FillTheListBackResult(JsonConvert.DeserializeObject<ResultCompareObject>(result));
+            ResultCompareObject result = await _param.Client.AddCodeAsync(sendParams);
+            FillTheListBackResult(result);
             this.Close();
         }
 
         private void FillTheListBackResult(ResultCompareObject resultFromSerrver)
         {
-            _resultCompare.ChildCodeText = resultFromSerrver.ChildCodeText;
-            _resultCompare.MainCodeText = resultFromSerrver.MainCodeText;
-            _resultCompare.ResultCompare = resultFromSerrver.ResultCompare;
-            _resultCompare.TokkingChildCode = resultFromSerrver.TokkingChildCode;
-            _resultCompare.TokkingMainCode = resultFromSerrver.TokkingMainCode;
-            _resultCompare.IsLocalCompare = resultFromSerrver.IsLocalCompare;
+            resultFromSerrver.ChildCodeText = resultFromSerrver.ChildCodeText;
+            resultFromSerrver.MainCodeText = resultFromSerrver.MainCodeText;
+            resultFromSerrver.ResultCompare = resultFromSerrver.ResultCompare;
+            resultFromSerrver.TokkingChildCode = resultFromSerrver.TokkingChildCode;
+            resultFromSerrver.TokkingMainCode = resultFromSerrver.TokkingMainCode;
+            resultFromSerrver.IsLocalCompare = resultFromSerrver.IsLocalCompare;
         }
     }
 }

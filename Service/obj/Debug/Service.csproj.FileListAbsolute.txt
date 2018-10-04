@@ -83,3 +83,7 @@ C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.csproj.Cor
 C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.csproj.CopyComplete
 C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.dll
 C:\Users\nikok\source\repos\WCFClientServer\Service\obj\Debug\Service.pdb
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\DotNetZip.dll
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\System.Xml.XPath.XDocument.dll
+C:\Users\nikok\source\repos\WCFClientServer\Service\bin\DotNetZip.xml

@@ -129,3 +129,4 @@ C:\Users\nikok\source\repos\WCFClientServer\FullAnalysisRoslyn\obj\Debug\FullAna
 C:\Users\nikok\source\repos\WCFClientServer\FullAnalysisRoslyn\obj\Debug\FullAnalysisRoslyn.csproj.CopyComplete
 C:\Users\nikok\source\repos\WCFClientServer\FullAnalysisRoslyn\obj\Debug\FullAnalysisRoslyn.dll
 C:\Users\nikok\source\repos\WCFClientServer\FullAnalysisRoslyn\obj\Debug\FullAnalysisRoslyn.pdb
+C:\Users\nikok\source\repos\WCFClientServer\FullAnalysisRoslyn\obj\Debug\FullAnalysisRoslyn.csprojAssemblyReference.cache
