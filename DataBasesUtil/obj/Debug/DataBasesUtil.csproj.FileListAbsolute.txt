@@ -7,3 +7,12 @@ C:\Users\nikok\source\repos\WCFClientServer\DataBasesUtil\obj\Debug\DataBasesUti
 C:\Users\nikok\source\repos\WCFClientServer\DataBasesUtil\obj\Debug\DataBasesUtil.csproj.CopyComplete
 C:\Users\nikok\source\repos\WCFClientServer\DataBasesUtil\obj\Debug\DataBasesUtil.dll
 C:\Users\nikok\source\repos\WCFClientServer\DataBasesUtil\obj\Debug\DataBasesUtil.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\bin\Debug\DataBasesUtil.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\bin\Debug\DataBasesUtil.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\bin\Debug\AnalysisCode.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\bin\Debug\AnalysisCode.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Debug\DataBasesUtil.csprojAssemblyReference.cache
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Debug\DataBasesUtil.csproj.CoreCompileInputs.cache
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Debug\DataBasesUtil.csproj.CopyComplete
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Debug\DataBasesUtil.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Debug\DataBasesUtil.pdb

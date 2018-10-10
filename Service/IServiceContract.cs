@@ -11,8 +11,6 @@ namespace Service
     public interface IServiceContract
     {
 
-        
-
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,

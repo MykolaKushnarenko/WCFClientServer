@@ -4,3 +4,9 @@ C:\Users\nikok\source\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.
 C:\Users\nikok\source\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.dll
 C:\Users\nikok\source\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.pdb
 C:\Users\nikok\source\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.csprojAssemblyReference.cache
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\bin\Debug\AnalysisCode.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\bin\Debug\AnalysisCode.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.csproj.CoreCompileInputs.cache
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.csprojAssemblyReference.cache

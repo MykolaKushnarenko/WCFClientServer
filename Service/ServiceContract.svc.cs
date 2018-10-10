@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Xml;
 using DataBasesUtil;
 using Service.DateObjectSender;
-using FullAnelysisRos;
 using Ionic.Zip;
-
+using DetailsAnalysis;
 namespace Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServiceContract" in code, svc and config file together.
@@ -16,12 +16,32 @@ namespace Service
     public class ServiceContract : IServiceContract
     {
 
-        private ZipFile _zip;
+        private static readonly string _path = HostingEnvironment.MapPath("~/Document/");
         private List<string> _allCompileType = new List<string>();
+        private ZipFile _zip;
         private ResultCompareObject _resultCompare = new ResultCompareObject();
         private DBUtil _db = new DBUtil();
-        private static string _path = HostingEnvironment.MapPath("~/Document/");
+        private AnalysisRoslyn _analysis;
+        private void GetAnalysisRoslyn(string solutionFilePath)
+        {
+            try
+            {
+                
+                _analysis = new AnalysisRoslyn(solutionFilePath);
+                List<string> list = _analysis.GetAllTypeInProgram();
 
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+        }
+        private void RunFullAnalysis(string path)
+        {
+            IEnumerable<string> getPathSolution = Directory.GetFiles(path).Where(p => p.Split('.')[1] == "sln").Select(p => p);
+            string fullPathSolutionFile = getPathSolution.Single();
+            GetAnalysisRoslyn(fullPathSolutionFile);
+        }
         private void ExportFromZip(string path, string filePath)
         {
 
@@ -80,10 +100,8 @@ namespace Service
             List<string> result = await Task.Run(() =>
             {
                 _allCompileType = _db.GetCompile(lang);
-                string s = ""; /*JsonConvert.SerializeObject(_allCompileType);*/
                 return _allCompileType;
             });
-            //DetailsAnalysis ver = new DetailsAnalysis("123");
             return result;
         }
 
@@ -101,13 +119,12 @@ namespace Service
                 _resultCompare.TokkingMainCode = _db.GetMainCodeList();
                 _resultCompare.TokkingChildCode = _db.GetChildCodeList();
             }
-            return _resultCompare; /*JsonConvert.SerializeObject(_resultCompare);*/
+            return _resultCompare;
         }
 
         public List<string> GetListSubmit()
         {
             List<string> listAllSubmit = _db.DescSubm();
-            string result = "";/*JsonConvert.SerializeObject(listAllSubmit);*/
             return listAllSubmit;
         }
 
@@ -115,20 +132,19 @@ namespace Service
         {
             _db.SearchIn(tagForSearch);
             GetResultList();
-            return _resultCompare; /*JsonConvert.SerializeObject(_resultCompare);*/
+            return _resultCompare;
         }
 
         public List<string> GetListHistory()
         {
             List<string> listAllHistory = _db.GetListHistory();
-            /*JsonConvert.SerializeObject(listAllHistory);*/
             return listAllHistory;
         }
 
         public bool Registration(RegistrationObject regInfo)
         {
             _db.RegistsAccount(regInfo.Name, regInfo.EMail, regInfo.Password);
-            return true; /*JsonConvert.SerializeObject(true);*/
+            return true;
         }
 
         public List<object> Autification(UserInformationObject information)
@@ -140,13 +156,13 @@ namespace Service
                 _db.GetImageUser(information.Login)
                 //JsonConvert.SerializeObject(_db.GetImageUser(login))
             };
-            return resultAfterAutif; /*JsonConvert.SerializeObject(resultAfterAutif);*/
+            return resultAfterAutif;
         }
 
         public bool ChangeUserImage(UserInformationObject information)
         {
             _db.UpdateImage(information.Name, information.Image);
-            return true; /*JsonConvert.SerializeObject(true);*/
+            return true;
         }
 
         public void UpdateUserInfo(UserInformationObject information)
