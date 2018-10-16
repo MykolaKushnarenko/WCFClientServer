@@ -95,9 +95,12 @@ C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\Client.pdb
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\DotNetZip.dll
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\MaterialDesignColors.dll
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\System.Data.Common.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\TempleteAlgorithm.dll
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\DotNetZip.xml
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\nikok\Desktop\WCFClientServer-master\Client\bin\Debug\TempleteAlgorithm.pdb
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\obj\Debug\MainWindow.g.cs
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\obj\Debug\WinPage\AddingSubmit.g.cs
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\obj\Debug\WinPage\AuthorizationWindow.g.cs
@@ -129,4 +132,3 @@ C:\Users\nikok\Desktop\WCFClientServer-master\Client\obj\Debug\Client.csproj.Cor
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\obj\Debug\Client.csproj.CopyComplete
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\obj\Debug\Client.exe
 C:\Users\nikok\Desktop\WCFClientServer-master\Client\obj\Debug\Client.pdb
-C:\Users\nikok\Desktop\WCFClientServer-master\Client\obj\Debug\Client.csprojAssemblyReference.cache

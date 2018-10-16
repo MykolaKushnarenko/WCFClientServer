@@ -31,7 +31,7 @@ namespace Client.WinPage
             LoadListSubmit();
         }
 
-        private async void LoadListSubmit()
+        private  void LoadListSubmit()
         {
             //DataExchangeWithServer getAllSubmit = new DataExchangeWithServer("GetListSubmit", "GET", "", "application/json", true);
             //string result = await getAllSubmit.SendToServer();
@@ -43,7 +43,7 @@ namespace Client.WinPage
             //}
         }
 
-        private async void SubmitList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SubmitList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //string wordFromItemsList = SubmitList.SelectedValue.ToString();
             //string[] get = wordFromItemsList?.Split(new char[] { '|' });

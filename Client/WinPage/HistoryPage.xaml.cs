@@ -26,7 +26,7 @@ namespace Client.WinPage
             UpdateHistoryList();
         }
 
-        private async void UpdateHistoryList()
+        private void UpdateHistoryList()
         {
             //DataExchangeWithServer getHistory = new DataExchangeWithServer("GetListHistory", "GET", "", "application/json", true);
             //string result = await getHistory.SendToServer();

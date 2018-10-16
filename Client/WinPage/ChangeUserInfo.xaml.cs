@@ -32,7 +32,7 @@ namespace Client.WinPage
             InitializeComponent();
         }
 
-        private async void ImageLoad_OnClick(object sender, RoutedEventArgs e)
+        private void ImageLoad_OnClick(object sender, RoutedEventArgs e)
         {
             //OpenFileDialog imageDialog = new OpenFileDialog()
             //{

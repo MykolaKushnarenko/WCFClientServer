@@ -12,11 +12,11 @@ namespace Client.SenderObject
     class DataExchangeWithServer
     {
         private const string _serverAdresess = "http://localhost:50373/Home/";
-        private string _adresess;
-        private string _method;
-        private string _paramSend;
-        private string _contentType;
-        private bool _returnData;
+        private readonly string _adresess;
+        private readonly string _method;
+        private readonly string _paramSend;
+        private readonly string _contentType;
+        private readonly bool _returnData;
         public DataExchangeWithServer() { }
 
         public DataExchangeWithServer(string adresess, string method, string param, string contentType, bool returnData)
@@ -75,7 +75,7 @@ namespace Client.SenderObject
                     }
                     return null;
                 }
-                catch (Exception e)
+                catch
                 {
                     MessageBox.Show("Sorry, this function not work. Send message to suppurt");
                     return null;

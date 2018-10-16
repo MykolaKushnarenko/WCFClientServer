@@ -1,0 +1,9 @@
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\bin\Release\DataBasesUtil.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\bin\Release\DataBasesUtil.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\bin\Release\AnalysisCode.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\bin\Release\AnalysisCode.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Release\DataBasesUtil.csprojAssemblyReference.cache
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Release\DataBasesUtil.csproj.CoreCompileInputs.cache
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Release\DataBasesUtil.csproj.CopyComplete
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Release\DataBasesUtil.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\DataBasesUtil\obj\Release\DataBasesUtil.pdb

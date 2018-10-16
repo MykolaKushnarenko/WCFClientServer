@@ -53,7 +53,7 @@ namespace Client
                     //_localCompare.ResultCompare.Add(String.Format("{1} : {0:0.##}", resultCompare, localAlgo.Key));
 
                 }
-                catch (Exception e)
+                catch
                 {
                     return;
                 }

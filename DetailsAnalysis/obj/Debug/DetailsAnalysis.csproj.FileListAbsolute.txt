@@ -258,8 +258,8 @@ C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\bin\Debug\ru\Micro
 C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\bin\Debug\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\bin\Debug\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\bin\Debug\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\obj\Debug\DetailsAnalysis.csprojAssemblyReference.cache
 C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\obj\Debug\DetailsAnalysis.csproj.CoreCompileInputs.cache
 C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\obj\Debug\DetailsAnalysis.csproj.CopyComplete
 C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\obj\Debug\DetailsAnalysis.dll
 C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\obj\Debug\DetailsAnalysis.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\DetailsAnalysis\obj\Debug\DetailsAnalysis.csprojAssemblyReference.cache

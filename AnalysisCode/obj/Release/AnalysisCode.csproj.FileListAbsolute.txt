@@ -1,0 +1,5 @@
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\bin\Release\AnalysisCode.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\bin\Release\AnalysisCode.pdb
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Release\AnalysisCode.csproj.CoreCompileInputs.cache
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Release\AnalysisCode.dll
+C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Release\AnalysisCode.pdb

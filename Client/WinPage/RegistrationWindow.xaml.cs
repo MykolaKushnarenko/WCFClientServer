@@ -26,7 +26,7 @@ namespace Client.WinPage
             InitializeComponent();
         }
 
-        private async void SinglUp_OnClick(object sender, RoutedEventArgs e)
+        private void SinglUp_OnClick(object sender, RoutedEventArgs e)
         {
 
             if (Password.Password == PasswordSecond.Password && Password.Password.Replace(" ", "") != ""

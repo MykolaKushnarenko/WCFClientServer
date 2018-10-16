@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DetailsAnalysis.Core;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.MSBuild;
@@ -11,22 +12,44 @@ namespace DetailsAnalysis
 {
     internal class TestAnalysisRoslyn
     {
-        private Compilation compilation;
-
+        private Compilation _compilation;
+        private MSBuildWorkspace _workspace;
+        private Solution _solution;
+        private IEnumerable<Project> _projects;
+        public TestAnalysisRoslyn()
+        {
+            _workspace = MSBuildWorkspace.Create();
+        }
         public async Task<List<string>> StartAsync(string path)
         {
-            // Attempt to set the version of MSBuild.
-            MSBuildWorkspace workspace = MSBuildWorkspace.Create();
-            Solution solution = await workspace.OpenSolutionAsync(path);
-            IEnumerable<Project> projects = solution.Projects;
-            var project = solution.Projects.First();
-            compilation = await project.GetCompilationAsync();
-            var syntexTree = compilation.SyntaxTrees;
+            _solution = await _workspace.OpenSolutionAsync(path);
+            _projects = _solution.Projects;
+            foreach (Project project1 in _projects)
+            {
+                Project myProject = project1;
+                _compilation = await myProject.GetCompilationAsync();
+                foreach (SyntaxTree syntax in _compilation.SyntaxTrees )
+                {
+                    SyntaxNode root = syntax.GetRoot();
+                    SemanticModel model = _compilation.GetSemanticModel(syntax);
+                    if (root.ContainsDiagnostics)
+                    {
+                        IEnumerable<Diagnostic> error = SearchError(root);
+                    }
+                    AnalysClassInfo myClass = new AnalysClassInfo(root);
+                    IEnumerable<TypeSyntax> allTypein = GetTypeUsing(root);
+                    IEnumerable<ITypeSymbol> conretType = allTypein.Select(p => (ITypeSymbol)model.GetSymbolInfo(p).Symbol);
+                    IEnumerable<MethodDeclarationSyntax> allMethods = GetAllMethodNames(root);
+                }
+            }
+            var project = _solution.Projects.First();
+            _compilation = await project.GetCompilationAsync();
+            var syntexTree = _compilation.SyntaxTrees;
             List<string> res = new List<string>();
-            foreach (var syntex in compilation.SyntaxTrees)
+            foreach (var syntex in _compilation.SyntaxTrees)
             {
                 SyntaxNode root = syntex.GetRoot();
-                var model = compilation.GetSemanticModel(syntex);
+                var model = _compilation.GetSemanticModel(syntex);
                 if (root.ContainsDiagnostics)
                 {
                     var a = SearchError(root);

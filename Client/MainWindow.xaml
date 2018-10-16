@@ -12,9 +12,8 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        mc:Ignorable="d"
-        Title="CoDEmpaire" Height="600" Width="900
-        " ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        mc:Ignorable="d" Height="600" Width="900
+        " ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Title="Codempare">
 
     <Window.Resources>
         <ResourceDictionary>

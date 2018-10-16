@@ -12,13 +12,12 @@ namespace Client.ObjectPararm
         private readonly string _name;
         private readonly string _description;
         private readonly string _typeCompile;
-        private readonly string _path;
         private readonly bool _isSearch;
         private readonly byte[] _code;
         private readonly string _fileName;
-        private ResultCompareObject _resultCompare;
+        private readonly ResultCompareObject _resultCompare;
         private readonly bool _compareLocal;
-        private ServiceContractClient _client;
+        private readonly ServiceContractClient _client;
 
         public string Name
         {
@@ -33,11 +32,6 @@ namespace Client.ObjectPararm
         public string TypeCompile
         {
             get { return _typeCompile; }
-        }
-
-        public string Path
-        {
-            get { return _path; }
         }
 
         public bool IsSearch

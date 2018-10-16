@@ -59,7 +59,7 @@ namespace Client.WinPage
             }
         }
 
-        private async void PrintCompilName(string lang)
+        private void PrintCompilName(string lang)
         {
             //DataExchangeWithServer getCompilName = new DataExchangeWithServer("GetComipeType", "POST", $"lang={lang}", "application/x-www-form-urlencoded", true);
             //string result = await getCompilName.SendToServer();

@@ -9,4 +9,3 @@ C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\bin\Debug\AnalysisCod
 C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.csproj.CoreCompileInputs.cache
 C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.dll
 C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.pdb
-C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.csprojAssemblyReference.cache

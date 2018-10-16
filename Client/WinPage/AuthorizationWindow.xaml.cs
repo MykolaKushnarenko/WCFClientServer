@@ -42,7 +42,7 @@ namespace Client.WinPage
             this.Close();
         }
 
-        private async void LoginButton_OnClick(object sender, RoutedEventArgs e)
+        private void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
             //List<object> isComplite;
             //DataExchangeWithServer authorization = new DataExchangeWithServer("Autification", "POST", $"login={Email.Text}&password={Password.Password}", "application/x-www-form-urlencoded", true);

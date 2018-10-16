@@ -31,7 +31,7 @@ namespace Service
                 List<string> list = _analysis.GetAllTypeInProgram();
 
             }
-            catch (Exception e)
+            catch
             {
                 // ignored
             }
@@ -97,6 +97,7 @@ namespace Service
 
         public async Task<List<string>> GetComipeType(string lang)
         {
+            GetAnalysisRoslyn(@"C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn.sln");
             List<string> result = await Task.Run(() =>
             {
                 _allCompileType = _db.GetCompile(lang);

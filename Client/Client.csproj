@@ -45,21 +45,28 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.1.1101, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.4.1.1101\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Win32.Primitives" />
     <Reference Include="System" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.AppContext" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Collections.NonGeneric" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Primitives" />
+    <Reference Include="System.Data.Common">
+      <HintPath>..\..\..\source\repos\CodeAnalysisApp1\CodeAnalysisApp1\bin\Debug\net461\System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process" />
+    <Reference Include="System.Diagnostics.TextWriterTraceListener" />
+    <Reference Include="System.Diagnostics.TraceSource" />
+    <Reference Include="System.Globalization.Calendars" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="TempleteAlgorithm">
-      <HintPath>..\..\TempleteAlgorithm\TempleteAlgorithm\bin\Debug\TempleteAlgorithm.dll</HintPath>
+      <HintPath>..\..\..\source\repos\TempleteAlgorithm\TempleteAlgorithm\bin\Debug\TempleteAlgorithm.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -201,12 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WCFServiseObject\WCFServiseObject.csproj">
-      <Project>{97F02FA0-8155-49CB-ADBB-CC69369BCEFA}</Project>
-      <Name>WCFServiseObject</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CodeCompare\" />

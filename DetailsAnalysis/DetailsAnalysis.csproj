@@ -227,6 +227,8 @@
   <ItemGroup>
     <Compile Include="AnalysisRoslyn.cs" />
     <Compile Include="Core\AnalisysRoslynCore.cs" />
+    <Compile Include="Core\AnalysClassInfo.cs" />
+    <Compile Include="Core\AnalysMethodInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
