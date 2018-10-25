@@ -31,7 +31,7 @@ namespace Service
                 List<string> list = _analysis.GetAllTypeInProgram();
 
             }
-            catch
+            catch(Exception ex)
             {
                 // ignored
             }

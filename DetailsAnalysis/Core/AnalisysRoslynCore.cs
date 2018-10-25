@@ -16,6 +16,7 @@ namespace DetailsAnalysis
         private MSBuildWorkspace _workspace;
         private Solution _solution;
         private IEnumerable<Project> _projects;
+        private List<AnalysClassInfo> _class;
         public TestAnalysisRoslyn()
         {
             _workspace = MSBuildWorkspace.Create();
@@ -28,7 +29,7 @@ namespace DetailsAnalysis
             {
                 Project myProject = project1;
                 _compilation = await myProject.GetCompilationAsync();
-                foreach (SyntaxTree syntax in _compilation.SyntaxTrees )
+                foreach (SyntaxTree syntax in _compilation.SyntaxTrees)
                 {
                     SyntaxNode root = syntax.GetRoot();
                     SemanticModel model = _compilation.GetSemanticModel(syntax);
@@ -36,7 +37,8 @@ namespace DetailsAnalysis
                     {
                         IEnumerable<Diagnostic> error = SearchError(root);
                     }
-                    AnalysClassInfo myClass = new AnalysClassInfo(root);
+
+                    _class = GetAnalysisClass(root);
                     IEnumerable<TypeSyntax> allTypein = GetTypeUsing(root);
                     IEnumerable<ITypeSymbol> conretType = allTypein.Select(p => (ITypeSymbol)model.GetSymbolInfo(p).Symbol);
                     IEnumerable<MethodDeclarationSyntax> allMethods = GetAllMethodNames(root);
@@ -83,6 +85,18 @@ namespace DetailsAnalysis
         private IEnumerable<ClassDeclarationSyntax> GetClasses(SyntaxNode node)
         {
             return node.DescendantNodes().OfType<ClassDeclarationSyntax>();
+        }
+
+        private List<AnalysClassInfo> GetAnalysisClass(SyntaxNode root)
+        {
+            List<AnalysClassInfo> listClass = new List<AnalysClassInfo>();
+            GetClasses(root).ToList().ForEach(node =>
+            {
+                AnalysClassInfo classInfo = new AnalysClassInfo(node);
+                listClass.Add(classInfo);
+
+            });
+            return listClass;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace DataBasesUtil
 {
     public class DBUtil
     {
-        private string _dataBasesConfig = @"Data Source=DESKTOP-AL2RCUI\SQLEXPRESS;Initial Catalog=CopeCompare;" +
+        private string _dataBasesConfig = @"Data Source=DESKTOP-AL2RCUI\MSSQLSERVERX;Initial Catalog=CopeCompare;" +
                                           "Integrated Security=SSPI;Pooling=False";
         private SqlConnection conn;
         private SqlCommand command;

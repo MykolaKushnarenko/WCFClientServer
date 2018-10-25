@@ -38,10 +38,10 @@ namespace DetailsAnalysis.Core
             get { return _methods; }
         }
 
-        public AnalysClassInfo(SyntaxNode classRoot)
+        public AnalysClassInfo(ClassDeclarationSyntax classRoot)
         {
             _thisNode = classRoot;
-            _classDeclarationSyntax = _thisNode.DescendantNodes().OfType<ClassDeclarationSyntax>().Single();
+            _classDeclarationSyntax = classRoot;
             StartAnalysis();
             TestOnHasError();
             _mainBaseListSyntax = GetMainBaseClass();
