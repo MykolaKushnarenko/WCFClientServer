@@ -11,7 +11,7 @@ namespace DetailsAnalysis
     {
         private TestAnalysisRoslyn _analysis;
         private readonly string _pathFile;
-        private List<AnalysClassInfo> _class;
+        private IEnumerable<AnalysClassInfo> _class;
 
         public AnalysisRoslyn(){}
         public AnalysisRoslyn(string path)
@@ -20,11 +20,12 @@ namespace DetailsAnalysis
             _pathFile = path;
         }
 
-        public List<string> GetAllTypeInProgram()
+        public void GetAllTypeInProgram() => _class = _analysis.StartAsync(_pathFile).Result;
+
+        public IEnumerable<string> ToListString()
         {
 
-            List<string> list = _analysis.StartAsync(_pathFile).Result;
-            return list;
+            return new List<string>();
         }
     }
 }

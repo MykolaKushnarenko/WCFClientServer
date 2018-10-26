@@ -28,7 +28,7 @@ namespace Service
             {
                 
                 _analysis = new AnalysisRoslyn(solutionFilePath);
-                List<string> list = _analysis.GetAllTypeInProgram();
+                _analysis.GetAllTypeInProgram();
 
             }
             catch(Exception ex)

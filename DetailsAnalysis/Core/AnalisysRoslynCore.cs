@@ -16,12 +16,12 @@ namespace DetailsAnalysis
         private MSBuildWorkspace _workspace;
         private Solution _solution;
         private IEnumerable<Project> _projects;
-        private List<AnalysClassInfo> _class;
+        private IEnumerable<AnalysClassInfo> _class;
         public TestAnalysisRoslyn()
         {
             _workspace = MSBuildWorkspace.Create();
         }
-        public async Task<List<string>> StartAsync(string path)
+        public async Task<IEnumerable<AnalysClassInfo>> StartAsync(string path)
         {
             _solution = await _workspace.OpenSolutionAsync(path);
             _projects = _solution.Projects;
@@ -37,41 +37,11 @@ namespace DetailsAnalysis
                     {
                         IEnumerable<Diagnostic> error = SearchError(root);
                     }
-
                     _class = GetAnalysisClass(root);
-                    IEnumerable<TypeSyntax> allTypein = GetTypeUsing(root);
-                    IEnumerable<ITypeSymbol> conretType = allTypein.Select(p => (ITypeSymbol)model.GetSymbolInfo(p).Symbol);
-                    IEnumerable<MethodDeclarationSyntax> allMethods = GetAllMethodNames(root);
                 }
             }
-            var project = _solution.Projects.First();
-            _compilation = await project.GetCompilationAsync();
-            var syntexTree = _compilation.SyntaxTrees;
-            List<string> res = new List<string>();
-            foreach (var syntex in _compilation.SyntaxTrees)
-            {
-                SyntaxNode root = syntex.GetRoot();
-                var model = _compilation.GetSemanticModel(syntex);
-                if (root.ContainsDiagnostics)
-                {
-                    var a = SearchError(root);
-                }
-
-                var f = GetTypeUsing(root);
-                var g = f.Select(p => (ITypeSymbol) model.GetSymbolInfo(p).Symbol);
-                var s = GetAllMethodNames(root);
-                var FirstClass = GetClasses(root);
-                var listCalssType = root.DescendantNodes().OfType<ClassDeclarationSyntax>();
-                ISymbol ser;
-                if (listCalssType.Any())
-                {
-                    ser = model.GetDeclaredSymbol(listCalssType.First());
-                    var list = g.Select(p => p.Name).ToList();
-                    res = list;
-                }
-               
-            }
-            return res;
+            
+            return _class;
         }
         private IEnumerable<Diagnostic> SearchError(SyntaxNode node) => node.GetDiagnostics();
         private IEnumerable<TypeSyntax> GetTypeUsing(SyntaxNode node) => node.DescendantNodes().OfType<VariableDeclarationSyntax>().Select(decl => decl.Type);
