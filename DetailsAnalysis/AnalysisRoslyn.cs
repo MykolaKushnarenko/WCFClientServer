@@ -9,14 +9,14 @@ namespace DetailsAnalysis
 {
     public class AnalysisRoslyn
     {
-        private TestAnalysisRoslyn _analysis;
+        private AnalysisRoslynCore _analysis;
         private readonly string _pathFile;
         private IEnumerable<AnalysClassInfo> _class;
 
         public AnalysisRoslyn(){}
         public AnalysisRoslyn(string path)
         {
-            _analysis = new TestAnalysisRoslyn();
+            _analysis = new AnalysisRoslynCore();
             _pathFile = path;
         }
 

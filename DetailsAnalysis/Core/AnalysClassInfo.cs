@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.VisualStudio.Setup.Configuration;
 
 namespace DetailsAnalysis.Core
 {
@@ -14,7 +15,7 @@ namespace DetailsAnalysis.Core
         private SyntaxNode _thisNode;
         private string _name;
         private bool _hasError;
-        private string _textError;
+        private IEnumerable<string> _textError;
         private IEnumerable<SyntaxNode> _simanticNodesMethods;
         private IEnumerable<AnalysMethodInfo> _methods;
         private ClassDeclarationSyntax _classDeclarationSyntax;
@@ -28,7 +29,7 @@ namespace DetailsAnalysis.Core
             get { return _hasError; }
         }
 
-        public string TextError
+        public IEnumerable<string> TextError
         {
             get { return _textError; }
         }
@@ -43,9 +44,6 @@ namespace DetailsAnalysis.Core
             _thisNode = classRoot;
             _classDeclarationSyntax = classRoot;
             StartAnalysis();
-            TestOnHasError();
-            _mainBaseListSyntax = GetMainBaseClass();
-            SetClassName();
         }
 
         private void TestOnHasError()
@@ -56,8 +54,26 @@ namespace DetailsAnalysis.Core
         private void StartAnalysis()
         {
             _simanticNodesMethods = _thisNode.DescendantNodes().OfType<MethodDeclarationSyntax>();
+            TestOnHasError();
+            _mainBaseListSyntax = GetMainBaseClass();
+            SetClassName();
+            IsError();
         }
 
+        private void IsError()
+        {
+            List<string> listError = new List<string>();
+            SearchError(_thisNode).ToList().ForEach(error =>
+            {
+                listError.Add(error.ToString());
+            });
+            if (listError.Count() != 0)
+            {
+                _hasError = true;
+                _textError = listError;
+            }
+
+        }
         private void SetClassName()
         {
             _name = _classDeclarationSyntax.Identifier.Text;
@@ -65,13 +81,13 @@ namespace DetailsAnalysis.Core
         private IEnumerable<Diagnostic> SearchError(SyntaxNode node) => node.GetDiagnostics();
         private IEnumerable<TypeSyntax> GetTypeUsing(SyntaxNode node) => node.DescendantNodes().OfType<VariableDeclarationSyntax>().Select(decl => decl.Type);
 
-        private IEnumerable<MethodDeclarationSyntax> GetAllMethodNames(SyntaxNode node)
+        private IEnumerable<MethodDeclarationSyntax> GetAllMethod(SyntaxNode node)
         {
             var res = node.DescendantNodes().OfType<MethodDeclarationSyntax>().ToString();
             return node.DescendantNodes().OfType<MethodDeclarationSyntax>();
         }
 
-        private IEnumerable<ClassDeclarationSyntax> GetClasses(SyntaxNode node)
+        private IEnumerable<ClassDeclarationSyntax> GetDeclarationSyntaxsClasses(SyntaxNode node)
         {
             return node.DescendantNodes().OfType<ClassDeclarationSyntax>();
         }

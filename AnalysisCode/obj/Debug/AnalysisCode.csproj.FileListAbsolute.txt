@@ -9,3 +9,14 @@ C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCod
 C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.dll
 C:\Users\nikok\Desktop\WCFClientServer-master\AnalysisCode\obj\Debug\AnalysisCode.pdb
 C:\Users\nikok\source\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.csprojAssemblyReference.cache
+F:\repos\WCFClientServer\AnalysisCode\bin\Debug\AnalysisCode.dll
+F:\repos\WCFClientServer\AnalysisCode\bin\Debug\AnalysisCode.pdb
+F:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.csprojAssemblyReference.cache
+F:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.csproj.CoreCompileInputs.cache
+F:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.dll
+F:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.pdb
+D:\repos\WCFClientServer\AnalysisCode\bin\Debug\AnalysisCode.dll
+D:\repos\WCFClientServer\AnalysisCode\bin\Debug\AnalysisCode.pdb
+D:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.csproj.CoreCompileInputs.cache
+D:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.dll
+D:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.pdb

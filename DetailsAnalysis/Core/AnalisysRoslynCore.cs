@@ -10,14 +10,14 @@ using Microsoft.CodeAnalysis.MSBuild;
 
 namespace DetailsAnalysis
 {
-    internal class TestAnalysisRoslyn
+    internal class AnalysisRoslynCore
     {
         private Compilation _compilation;
         private MSBuildWorkspace _workspace;
         private Solution _solution;
         private IEnumerable<Project> _projects;
         private IEnumerable<AnalysClassInfo> _class;
-        public TestAnalysisRoslyn()
+        public AnalysisRoslynCore()
         {
             _workspace = MSBuildWorkspace.Create();
         }

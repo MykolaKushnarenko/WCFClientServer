@@ -13,7 +13,7 @@ namespace DataBasesUtil
 {
     public class DBUtil
     {
-        private string _dataBasesConfig = @"Data Source=DESKTOP-AL2RCUI\MSSQLSERVERX;Initial Catalog=CopeCompare;" +
+        private string _dataBasesConfig = @"Data Source=DESKTOP-EI04E5V\MSSQLSERVERONE;Initial Catalog=CopeCompare;" +
                                           "Integrated Security=SSPI;Pooling=False";
         private SqlConnection conn;
         private SqlCommand command;
@@ -170,6 +170,11 @@ namespace DataBasesUtil
             IsNull();
             command = new SqlCommand();
             Code = new Analysis();
+        }
+
+        public DBUtil(string conneDataBasesConfig) : this()
+        {
+            _dataBasesConfig = conneDataBasesConfig;
         }
 
         public List<string> GetListHistory()

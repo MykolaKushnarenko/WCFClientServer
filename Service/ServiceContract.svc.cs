@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,10 +18,11 @@ namespace Service
     {
 
         private static readonly string _path = HostingEnvironment.MapPath("~/Document/");
+        private static readonly string stringConnection = ConfigurationManager.ConnectionStrings["CompareCodeSqlProvider"].ConnectionString;
         private List<string> _allCompileType = new List<string>();
         private ZipFile _zip;
         private ResultCompareObject _resultCompare = new ResultCompareObject();
-        private DBUtil _db = new DBUtil();
+        private DBUtil _db = new DBUtil(stringConnection);
         private AnalysisRoslyn _analysis;
         private void GetAnalysisRoslyn(string solutionFilePath)
         {
@@ -97,7 +99,8 @@ namespace Service
 
         public async Task<List<string>> GetComipeType(string lang)
         {
-            GetAnalysisRoslyn(@"C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn.sln");
+            //TODO: Don't forgot remove direction to project!!!
+            GetAnalysisRoslyn(@"D:\repos\TempleForRoslyn\TempleForRoslyn.sln");
             List<string> result = await Task.Run(() =>
             {
                 _allCompileType = _db.GetCompile(lang);
@@ -108,7 +111,10 @@ namespace Service
 
         public async Task<ResultCompareObject> AddCode(AddingCodeObject param)
         {
-            CreateZipFromSream(param.Solution);
+            if (param.Solution != null)
+            {
+                CreateZipFromSream(param.Solution);
+            }
             bool isOver = await _db.AddingSubmit(param.Name, param.Description, param.CompileType, param.Code, param.IsSearch, param.FileMane);
             if (param.IsSearch)
             {
