@@ -21,13 +21,17 @@ namespace Client.WinPage
         private ResultCompareObject _resultCompare;
         private List<string> _codeList;
         private ServiceContractClient _client;
-        public AddingSubmit(Action<ResultCompareObject> methodResult, bool isSearch, ServiceContractClient client)
+        private Action _onBlur;
+        private Action _offBlur;
+        public AddingSubmit(Action<ResultCompareObject> methodResult, bool isSearch, ServiceContractClient client, Action onBlure,Action offBlure)
         {
             _swichToResutl = methodResult;
             _resultCompare = new ResultCompareObject();
             _codeList = new List<string>();
             _search = isSearch;
             _client = client;
+            _onBlur = onBlure;
+            _offBlur = offBlure;
             InitializeComponent();
             PrintCompilName(CsharpLanguage.Content.ToString());
         }
@@ -108,7 +112,7 @@ namespace Client.WinPage
             {
                 lang = (string)JavaLanguage.Content;
             }
-            LoadWindowParam param = new LoadWindowParam(NameAuthor.Text, Description.Text, typeCompiler, _search, GetCode(), FileName, ref _resultCompare, CompareMy.IsChecked ?? true, _client); 
+            LoadWindowParam param = new LoadWindowParam(NameAuthor.Text, Description.Text, typeCompiler, _search, GetCode(), FileName, ref _resultCompare, CompareMy.IsChecked ?? true, _client, _onBlur,_offBlur); 
             LoadWindow load = new LoadWindow(param);
             load.ShowDialog();
             if (_search && !(CompareMy.IsChecked ?? true))

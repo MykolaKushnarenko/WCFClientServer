@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -24,13 +25,14 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BlurEffect blurEffect = null;
         private string _nameUser { get; set; }
         private ServiceContractClient client { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             client = new ServiceContractClient();
-            GridContentAction.Children.Add(new AddingSubmit(Result, false, client));
+            GridContentAction.Children.Add(new AddingSubmit(Result, false, client, UseBlereEffect, CancleBlereEffect));
             Visibility = Visibility.Hidden;
             AutificationWindow();
         }
@@ -65,11 +67,11 @@ namespace Client
             {
                 case 0:
                     GridContentAction.Children.Clear();
-                    GridContentAction.Children.Add(new AddingSubmit(Result, false, client));
+                    GridContentAction.Children.Add(new AddingSubmit(Result, false, client, UseBlereEffect, CancleBlereEffect));
                     break;
                 case 1:
                     GridContentAction.Children.Clear();
-                    GridContentAction.Children.Add(new AddingSubmit(Result, true, client));
+                    GridContentAction.Children.Add(new AddingSubmit(Result, true, client, UseBlereEffect, CancleBlereEffect));
                     break;
                 case 2:
                     GridContentAction.Children.Clear();
@@ -123,5 +125,17 @@ namespace Client
         private void SetName(string name) => _nameUser = name;
 
         private void SetImageProfile(ImageSource image) => ProfilImage.Source = image;
+
+        private void UseBlereEffect()
+        {
+            blurEffect = new BlurEffect();
+            blurEffect.Radius = 7;
+            Effect = blurEffect;
+        }
+        private void CancleBlereEffect()
+        {
+            blurEffect.Radius = 0;
+            Effect = blurEffect;
+        }
     }
 }

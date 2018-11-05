@@ -18,6 +18,8 @@ namespace Client.ObjectPararm
         private readonly ResultCompareObject _resultCompare;
         private readonly bool _compareLocal;
         private readonly ServiceContractClient _client;
+        private readonly Action _onBlur;
+        private readonly Action _offBlur;
 
         public string Name
         {
@@ -63,8 +65,18 @@ namespace Client.ObjectPararm
         {
             get { return _client; }
         }
+
+        public Action OnBlure
+        {
+            get { return _onBlur; }
+        }
+
+        public Action OffBlure
+        {
+            get { return _offBlur; }
+        }
         public LoadWindowParam(){}
-        public LoadWindowParam(string name, string description, string type, bool isSearch, byte[] code, string Filename, ref ResultCompareObject result, bool compareLocal, ServiceContractClient client)
+        public LoadWindowParam(string name, string description, string type, bool isSearch, byte[] code, string Filename, ref ResultCompareObject result, bool compareLocal, ServiceContractClient client, Action onBlure, Action offBlure)
         {
             _name = name;
             _code = code;
@@ -75,6 +87,8 @@ namespace Client.ObjectPararm
             _isSearch = isSearch;
             _compareLocal = compareLocal;
             _client = client;
+            _onBlur = onBlure;
+            _offBlur = offBlure;
         }
 
     }

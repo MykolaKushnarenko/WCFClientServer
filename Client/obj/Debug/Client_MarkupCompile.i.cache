@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\nikok\source\repos\WCFClientServer\Client\obj\Debug\
+D:\repos\WCFClientServer\Client\obj\Debug\
 Client
 none
 false
 DEBUG;TRACE
-C:\Users\nikok\source\repos\WCFClientServer\Client\App.xaml
+D:\repos\WCFClientServer\Client\App.xaml
 1040013089
 
 22816486410
-25-99263459
+25-1471211030
 MainWindow.xaml;WinPage\AddingSubmit.xaml;WinPage\AuthorizationWindow.xaml;WinPage\ChangeUserInfo.xaml;WinPage\DataBasesSubmitList.xaml;WinPage\HelpPage.xaml;WinPage\HistoryPage.xaml;WinPage\LoadWindow.xaml;WinPage\RegistrationWindow.xaml;WinPage\ResultPage.xaml;
 
 False
