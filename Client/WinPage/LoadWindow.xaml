@@ -10,10 +10,9 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="Window1" Height="150" Width="200" WindowStyle="None" WindowStartupLocation="CenterScreen" Cursor="Wait" ShowInTaskbar="False">
+        Title="Window1" Height="150" Width="200" Foreground="#00000000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="#00000000" AllowsTransparency="True">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

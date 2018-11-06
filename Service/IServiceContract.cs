@@ -16,10 +16,6 @@ namespace Service
             ResponseFormat = WebMessageFormat.Xml,
             UriTemplate = "xml/{value}")]
         string GetData(string value);
-        //TODO: Delete the "CreateNewDb()"
-        [OperationContract]
-        bool CreateNewDB();
-
         [OperationContract]
         Task<List<string>> GetComipeType(string lang);
         [OperationContract]

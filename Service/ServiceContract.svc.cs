@@ -65,22 +65,12 @@ namespace Service
                 file.Write(zipFile,0,zipFile.Length);
             }
             ExportFromZip(_path + guid, fullPath);
+            RunFullAnalysis(_path + guid);
 
         }
         public string GetData(string value)
         {
             return string.Format("You entered: {0}", value);
-        }
-
-        public bool CreateNewDB()
-        {
-            DBUtil db = new DBUtil();
-            if (db != null)
-            {
-                return true;
-            }
-
-            return false;
         }
         private void GetResultList()
         {
@@ -100,7 +90,7 @@ namespace Service
         public async Task<List<string>> GetComipeType(string lang)
         {
             //TODO: Don't forgot remove direction to project!!!
-            GetAnalysisRoslyn(@"D:\repos\TempleForRoslyn\TempleForRoslyn.sln");
+            //GetAnalysisRoslyn(@"D:\repos\TempleForRoslyn\TempleForRoslyn.sln");
             List<string> result = await Task.Run(() =>
             {
                 _allCompileType = _db.GetCompile(lang);
