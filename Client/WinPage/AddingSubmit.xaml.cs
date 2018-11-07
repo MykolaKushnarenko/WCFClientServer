@@ -106,7 +106,7 @@ namespace Client.WinPage
             string result = FileFolderDialog(filter);
             if (result != "")
             {
-                _path = FileName;
+                _path = result;
                 LoadFileToBD.Visibility = Visibility.Visible;
             }
             

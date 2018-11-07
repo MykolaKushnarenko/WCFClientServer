@@ -22,6 +22,11 @@ namespace DetailsAnalysis.Core
         private BaseListSyntax _mainBaseListSyntax;
         private IEnumerable<string> _stringFormatAllTypeInClass;
         private SemanticModel _semanticModel;
+
+        public IEnumerable<string> StringFormatAllTypeInClass
+        {
+            get { return _stringFormatAllTypeInClass; }
+        }
         public string Name
         {
             get { return _name; }
@@ -41,7 +46,7 @@ namespace DetailsAnalysis.Core
             get { return _methods; }
         }
 
-        public AnalysClassInfo(ClassDeclarationSyntax classRoot)
+        public AnalysClassInfo(ClassDeclarationSyntax classRoot, SemanticModel semanticModel)
         {
             _thisNode = classRoot;
             _classDeclarationSyntax = classRoot;
@@ -101,9 +106,9 @@ namespace DetailsAnalysis.Core
             return _classDeclarationSyntax.BaseList;
         }
 
-        public void ToStringFormat()
+        private void ToStringFormat()
         {
-            var resulr = GetTypeUsing(_thisNode).Select(type => (ITypeSymbol)_semanticModel.GetSymbolInfo(type).Symbol);
+            _stringFormatAllTypeInClass = GetTypeUsing(_thisNode).Select(type => ((ITypeSymbol)_semanticModel.GetSymbolInfo(type).Symbol).ToString());
         }
     }
 }
