@@ -29,7 +29,7 @@ namespace Client.WinPage
         {
             InitializeComponent();
             _param = param;
-            _param.OnBlure();
+            _param.OnBlur();
             Load();
         }
         private async void Load()
@@ -39,7 +39,7 @@ namespace Client.WinPage
             {
                 using (ZipFile zip = new ZipFile())
                 {
-                    zip.AddDirectory(@"C:\Users\nikok\source\repos\EnglishDic");
+                    zip.AddDirectory(_param.SolutionPath);
                     zip.Save(memoryStream);
                 }
 
@@ -63,7 +63,7 @@ namespace Client.WinPage
             //if (result == null) return;
             //FillTheListBackResult(JsonConvert.DeserializeObject<ResultCompareObject>(result));
             ResultCompareObject result = await _param.Client.AddCodeAsync(sendParams);
-            _param.OffBlure();
+            _param.OffBlur();
             FillTheListBackResult(result);
             this.Close();
         }

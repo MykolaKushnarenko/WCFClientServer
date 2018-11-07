@@ -1057,3 +1057,4 @@ D:\repos\WCFClientServer\DetailsAnalysis\obj\Debug\DetailsAnalysis.csproj.CoreCo
 D:\repos\WCFClientServer\DetailsAnalysis\obj\Debug\DetailsAnalysis.csproj.CopyComplete
 D:\repos\WCFClientServer\DetailsAnalysis\obj\Debug\DetailsAnalysis.dll
 D:\repos\WCFClientServer\DetailsAnalysis\obj\Debug\DetailsAnalysis.pdb
+D:\repos\WCFClientServer\DetailsAnalysis\obj\Debug\DetailsAnalysis.csprojAssemblyReference.cache

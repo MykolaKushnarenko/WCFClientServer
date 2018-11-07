@@ -74,6 +74,7 @@ namespace Service
         }
         private void GetResultList()
         {
+            //TODO: improve this method 
             _resultCompare.MainCodeText = _db.GetOrignCodeFromId(_db.IdMainFileForHist);
             _resultCompare.ChildCodeText = _db.GetOrignCodeFromId(_db.IdiDenticalFie);
             _db.SetCodeMain(_db.IdMainFileForHist);

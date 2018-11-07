@@ -37,7 +37,7 @@ namespace DetailsAnalysis
                     {
                         IEnumerable<Diagnostic> error = SearchError(root);
                     }
-                    _class = GetAnalysisClass(root);
+                    _class = GetAnalysisClass(root,model);
                 }
             }
             
@@ -57,12 +57,12 @@ namespace DetailsAnalysis
             return node.DescendantNodes().OfType<ClassDeclarationSyntax>();
         }
 
-        private List<AnalysClassInfo> GetAnalysisClass(SyntaxNode root)
+        private List<AnalysClassInfo> GetAnalysisClass(SyntaxNode root, SemanticModel model)
         {
             List<AnalysClassInfo> listClass = new List<AnalysClassInfo>();
             GetClasses(root).ToList().ForEach(node =>
             {
-                AnalysClassInfo classInfo = new AnalysClassInfo(node);
+                AnalysClassInfo classInfo = new AnalysClassInfo(node, model);
                 listClass.Add(classInfo);
 
             });

@@ -20,6 +20,8 @@ namespace DetailsAnalysis.Core
         private IEnumerable<AnalysMethodInfo> _methods;
         private ClassDeclarationSyntax _classDeclarationSyntax;
         private BaseListSyntax _mainBaseListSyntax;
+        private IEnumerable<string> _stringFormatAllTypeInClass;
+        private SemanticModel _semanticModel;
         public string Name
         {
             get { return _name; }
@@ -43,6 +45,7 @@ namespace DetailsAnalysis.Core
         {
             _thisNode = classRoot;
             _classDeclarationSyntax = classRoot;
+            _semanticModel = semanticModel;
             StartAnalysis();
         }
 
@@ -58,6 +61,7 @@ namespace DetailsAnalysis.Core
             _mainBaseListSyntax = GetMainBaseClass();
             SetClassName();
             IsError();
+            ToStringFormat();
         }
 
         private void IsError()
@@ -95,6 +99,11 @@ namespace DetailsAnalysis.Core
         private BaseListSyntax GetMainBaseClass()
         {
             return _classDeclarationSyntax.BaseList;
+        }
+
+        public void ToStringFormat()
+        {
+            var resulr = GetTypeUsing(_thisNode).Select(type => (ITypeSymbol)_semanticModel.GetSymbolInfo(type).Symbol);
         }
     }
 }

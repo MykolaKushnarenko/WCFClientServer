@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Forms;
 using Client.CodeCompare;
 using Client.ObjectPararm;
-using Microsoft.Win32;
+using MessageBox = System.Windows.MessageBox;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace Client.WinPage
 {
@@ -23,6 +26,7 @@ namespace Client.WinPage
         private ServiceContractClient _client;
         private Action _onBlur;
         private Action _offBlur;
+        private string _solutionPath;
         public AddingSubmit(Action<ResultCompareObject> methodResult, bool isSearch, ServiceContractClient client, Action onBlure,Action offBlure)
         {
             _swichToResutl = methodResult;
@@ -65,10 +69,7 @@ namespace Client.WinPage
 
         private void PrintCompilName(string lang)
         {
-            //DataExchangeWithServer getCompilName = new DataExchangeWithServer("GetComipeType", "POST", $"lang={lang}", "application/x-www-form-urlencoded", true);
-            //string result = await getCompilName.SendToServer();
-            //if (result == null) return;
-            //List<string> typeCompl = JsonConvert.DeserializeObject<List<string>>(result);
+
             string[] compileType =_client.GetComipeType(lang);
             foreach (var typeCompil in compileType)
             {
@@ -76,24 +77,39 @@ namespace Client.WinPage
             }
 
         }
-        private void AddFile_OnClick(object sender, RoutedEventArgs e)
+
+        private string FileFolderDialog(string filter)
         {
+            string res = "";
             OpenFileDialog myDialog = new OpenFileDialog
             {
-                Filter = "Исходные коды(*.cs;*.java;*.cpp;*.c)|*.cs;*.java;*.cpp;*.c" + "|Все файлы (*.*)|*.* ",
+                Filter = filter,
                 CheckFileExists = true,
                 Multiselect = true
             };
             if (myDialog.ShowDialog() == true)
             {
-                _path = myDialog.FileName;
+                res = myDialog.FileName;
             }
 
-            if (_path != "" && CompilName.SelectedIndex > -1)
+            return res;
+        }
+        private void AddFile_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (CompilName.SelectedIndex == -1)
             {
+                MessageBox.Show("Сhoose a type of compilation", "LOOK!", MessageBoxButton.OK);
+                return;
+            }
 
+            string filter ="Исходные коды(*.cs;*.java;*.cpp;*.c)|*.cs;*.java;*.cpp;*.c" + "|Все файлы (*.*)|*.* ";
+            string result = FileFolderDialog(filter);
+            if (result != "")
+            {
+                _path = FileName;
                 LoadFileToBD.Visibility = Visibility.Visible;
             }
+            
         }
 
         private void LoadFileToBD_OnClick(object sender, RoutedEventArgs e)
@@ -112,8 +128,8 @@ namespace Client.WinPage
             {
                 lang = (string)JavaLanguage.Content;
             }
-            LoadWindowParam param = new LoadWindowParam(NameAuthor.Text, Description.Text, typeCompiler, _search, GetCode(), FileName, ref _resultCompare, CompareMy.IsChecked ?? true, _client, _onBlur,_offBlur); 
-            LoadWindow load = new LoadWindow(param);
+            
+            LoadWindow load = new LoadWindow(GetParams(typeCompiler));
             load.ShowDialog();
             if (_search && !(CompareMy.IsChecked ?? true))
             {
@@ -138,6 +154,49 @@ namespace Client.WinPage
             StreamReader file = new StreamReader(_path);
             byte[] code = file.CurrentEncoding.GetBytes(file.ReadToEnd());
             return code;
+        }
+
+        private void FullAnalysis_OnClick(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            if (folder.ShowDialog() == DialogResult.OK && IsSLNFile(folder.SelectedPath))
+            {
+                _solutionPath = folder.SelectedPath;
+            }
+        }
+
+        private bool IsSLNFile(string path)
+        {
+            string[] files = new DirectoryInfo(path).GetFiles("*.sln", SearchOption.AllDirectories)
+                .Select(f => f.FullName).ToArray();
+            if (files.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private LoadWindowParam GetParams(string typeCompiler)
+        {
+            LoadWindowParam param2 = new LoadWindowParam()
+            {
+                Name = NameAuthor.Text,
+                Description = Description.Text,
+                TypeCompile = typeCompiler,
+                IsSearch = _search,
+                Code = GetCode(),
+                FileName = FileName,
+                SolutionPath = _solutionPath,
+                ResultCompare = _resultCompare,
+                CompareLocal = CompareMy.IsChecked ?? true,
+                Client = _client,
+                OnBlur = _onBlur,
+                OffBlur = _offBlur
+            };
+            //LoadWindowParam param = new LoadWindowParam(NameAuthor.Text, Description.Text, typeCompiler, _search, GetCode(), FileName, ref _resultCompare, CompareMy.IsChecked ?? true, _client, _onBlur, _offBlur);
+            return param2;
         }
     }
 }
