@@ -229,6 +229,7 @@
     <Compile Include="Core\AnalisysRoslynCore.cs" />
     <Compile Include="Core\AnalysClassInfo.cs" />
     <Compile Include="Core\AnalysMethodInfo.cs" />
+    <Compile Include="Model\AnalysInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

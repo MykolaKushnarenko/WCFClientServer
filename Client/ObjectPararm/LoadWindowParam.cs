@@ -15,7 +15,6 @@ namespace Client.ObjectPararm
         public bool IsSearch;
         public byte[] Code;
         public string FileName;
-        public ResultCompareObject ResultCompare;
         public bool CompareLocal;
         public ServiceContractClient Client;
         public Action OnBlur;
@@ -24,13 +23,12 @@ namespace Client.ObjectPararm
 
 
         public LoadWindowParam(){}
-        public LoadWindowParam(string name, string description, string type, bool isSearch, byte[] code, string Filename, ref ResultCompareObject result, bool compareLocal, ServiceContractClient client, Action onBlure, Action offBlure)
+        public LoadWindowParam(string name, string description, string type, bool isSearch, byte[] code, string Filename, bool compareLocal, ServiceContractClient client, Action onBlure, Action offBlure)
         {
             Name = name;
             Code = code;
             FileName = Filename;
             Description = description;
-            ResultCompare = result;
             TypeCompile = type;
             IsSearch = isSearch;
             CompareLocal = compareLocal;

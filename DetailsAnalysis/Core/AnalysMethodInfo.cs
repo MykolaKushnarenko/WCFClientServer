@@ -4,21 +4,25 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using DetailsAnalysis.Model;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualStudio.Setup.Configuration;
 
 namespace DetailsAnalysis.Core
 {
-    class AnalysMethodInfo
+    public class AnalysMethodInfo:AnalysInfo
     {
-        private string _name;
-        private SyntaxNode _node;
+        
         private MethodDeclarationSyntax _methoDeclarationSyntax;
-        private IEnumerable<SyntaxNode> _simanticNodes;
-        private IEnumerable<string> _stringFormatAllTypeInMethod;
-        private SemanticModel _semanticModel;
-
+        public IEnumerable<string> StringFormatAllTypeInClass
+        {
+            get { return _stringFormat; }
+        }
+        public string Name
+        {
+            get { return _name; }
+        }
         public AnalysMethodInfo(SyntaxNode node, SemanticModel semanticModel)
         {
             _node = node;
@@ -27,14 +31,15 @@ namespace DetailsAnalysis.Core
             ToStringFormat();
             SetName();
         }
-        private void SetName()
+
+        internal override void SetName()
         {
             _name = _methoDeclarationSyntax.Identifier.Text;
         }
         private IEnumerable<TypeSyntax> GetTypeUsing(SyntaxNode node) => node.DescendantNodes().OfType<VariableDeclarationSyntax>().Select(decl => decl.Type);
         private void ToStringFormat()
         {
-            _stringFormatAllTypeInMethod = GetTypeUsing(_node).Select(type => ((ITypeSymbol)_semanticModel.GetSymbolInfo(type).Symbol).ToString());
+            _stringFormat = GetTypeUsing(_node).Select(type => ((ITypeSymbol)_semanticModel.GetSymbolInfo(type).Symbol).ToString());
         }
     }
 }

@@ -289,6 +289,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DateObjectSender\AddingCodeObject.cs" />
+    <Compile Include="DateObjectSender\DetailAnalyz\DAnalysClassObject.cs" />
+    <Compile Include="DateObjectSender\DetailAnalyz\DAnalysMethodObject.cs" />
     <Compile Include="DateObjectSender\RegistrationObject.cs" />
     <Compile Include="DateObjectSender\ResultCompareObject.cs" />
     <Compile Include="DateObjectSender\UserInformationObject.cs" />

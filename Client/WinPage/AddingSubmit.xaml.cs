@@ -129,7 +129,7 @@ namespace Client.WinPage
                 lang = (string)JavaLanguage.Content;
             }
             
-            LoadWindow load = new LoadWindow(GetParams(typeCompiler));
+            LoadWindow load = new LoadWindow(GetParams(typeCompiler), ref _resultCompare);
             load.ShowDialog();
             if (_search && !(CompareMy.IsChecked ?? true))
             {
@@ -189,7 +189,6 @@ namespace Client.WinPage
                 Code = GetCode(),
                 FileName = FileName,
                 SolutionPath = _solutionPath,
-                ResultCompare = _resultCompare,
                 CompareLocal = CompareMy.IsChecked ?? true,
                 Client = _client,
                 OnBlur = _onBlur,

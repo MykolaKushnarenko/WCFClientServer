@@ -10,6 +10,8 @@ using DataBasesUtil;
 using Service.DateObjectSender;
 using Ionic.Zip;
 using DetailsAnalysis;
+using Service.DateObjectSender.DetailAnalyz;
+
 namespace Service
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServiceContract" in code, svc and config file together.
@@ -82,6 +84,7 @@ namespace Service
             double resVarnFish = _db.GetResult(1);
             double resVShiling = _db.GetResult(2);
             double resHeskel = _db.GetResult(0);
+            _resultCompare.ResultCompare = new List<string>();
             _resultCompare.ResultCompare.Add(String.Format("Levenshtein Distance : {0:0.##}", resVarnFish));
             _resultCompare.ResultCompare.Add(String.Format("WShiling : {0:0.##}", resVShiling));
             _resultCompare.ResultCompare.Add(String.Format("Haskel : {0:0.##}", resHeskel));
@@ -109,6 +112,11 @@ namespace Service
             bool isOver = await _db.AddingSubmit(param.Name, param.Description, param.CompileType, param.Code, param.IsSearch, param.FileMane);
             if (param.IsSearch)
             {
+                var res = _analysis.Class.Select(Class =>
+                {
+                    if (Class != null) return DAnalysClassObject.CreateSendObject(Class);
+                    return null;
+                });
                 GetResultList();
             }
 

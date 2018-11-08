@@ -4,28 +4,39 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using DetailsAnalysis.Model;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.VisualStudio.Setup.Configuration;
 
 namespace DetailsAnalysis.Core
 {
-    class AnalysClassInfo
+    public class AnalysClassInfo:AnalysInfo
     {
-        private SyntaxNode _thisNode;
-        private string _name;
         private bool _hasError;
         private IEnumerable<string> _textError;
         private IEnumerable<SyntaxNode> _simanticNodesMethods;
         private IEnumerable<AnalysMethodInfo> _methods;
         private ClassDeclarationSyntax _classDeclarationSyntax;
         private BaseListSyntax _mainBaseListSyntax;
-        private IEnumerable<string> _stringFormatAllTypeInClass;
-        private SemanticModel _semanticModel;
+
+        public string BaseClasses
+        {
+            get
+            {
+                if (_mainBaseListSyntax != null)
+                {
+                    return _mainBaseListSyntax.ToString();
+                }
+                else
+                    return "";
+
+            }
+        }
 
         public IEnumerable<string> StringFormatAllTypeInClass
         {
-            get { return _stringFormatAllTypeInClass; }
+            get { return _stringFormat; }
         }
         public string Name
         {
@@ -48,7 +59,7 @@ namespace DetailsAnalysis.Core
 
         public AnalysClassInfo(ClassDeclarationSyntax classRoot, SemanticModel semanticModel)
         {
-            _thisNode = classRoot;
+            _node = classRoot;
             _classDeclarationSyntax = classRoot;
             _semanticModel = semanticModel;
             StartAnalysis();
@@ -56,12 +67,12 @@ namespace DetailsAnalysis.Core
 
         private void TestOnHasError()
         {
-            _hasError = _thisNode.ContainsDiagnostics;
+            _hasError = _node.ContainsDiagnostics;
         }
 
         private void StartAnalysis()
         {
-            _simanticNodesMethods = _thisNode.DescendantNodes().OfType<MethodDeclarationSyntax>();
+            _simanticNodesMethods = _node.DescendantNodes().OfType<MethodDeclarationSyntax>();
             TestOnHasError();
             _mainBaseListSyntax = GetMainBaseClass();
             SetClassName();
@@ -77,7 +88,7 @@ namespace DetailsAnalysis.Core
         private void IsError()
         {
             List<string> listError = new List<string>();
-            SearchError(_thisNode).ToList().ForEach(error =>
+            SearchError(_node).ToList().ForEach(error =>
             {
                 listError.Add(error.ToString());
             });
@@ -111,7 +122,7 @@ namespace DetailsAnalysis.Core
         }
         private void ToStringFormat()
         {
-            _stringFormatAllTypeInClass = GetTypeUsing(_thisNode).Select(type => ((ITypeSymbol)_semanticModel.GetSymbolInfo(type).Symbol).ToString());
+            _stringFormat = GetTypeUsing(_node).Select(type => ((ITypeSymbol)_semanticModel.GetSymbolInfo(type).Symbol).ToString());
         }
     }
 }

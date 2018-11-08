@@ -13,6 +13,11 @@ namespace DetailsAnalysis
         private readonly string _pathFile;
         private IEnumerable<AnalysClassInfo> _class;
 
+        public IEnumerable<AnalysClassInfo> Class
+        {
+            get { return _class; }
+        }
+
         public AnalysisRoslyn(){}
         public AnalysisRoslyn(string path)
         {
@@ -21,11 +26,5 @@ namespace DetailsAnalysis
         }
 
         public void GetAllTypeInProgram() => _class = _analysis.StartAsync(_pathFile).Result;
-
-        public IEnumerable<string> ToListString()
-        {
-
-            return new List<string>();
-        }
     }
 }

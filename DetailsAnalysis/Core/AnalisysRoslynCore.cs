@@ -28,6 +28,7 @@ namespace DetailsAnalysis
         }
         public async Task<IEnumerable<AnalysClassInfo>> StartAsync(string path)
         {
+            List<AnalysClassInfo> clasList = new List<AnalysClassInfo>();
             _solution = await _workspace.OpenSolutionAsync(path);
             _projects = _solution.Projects;
             foreach (Project project1 in _projects)
@@ -42,10 +43,17 @@ namespace DetailsAnalysis
                     {
                         IEnumerable<Diagnostic> error = SearchError(root);
                     }
-                    _class = GetAnalysisClass(root,model);
+                    
+                    var clas = GetAnalysisClass(root, model);
+                    foreach (var analysClassInfo in clas)
+                    {
+                        clasList.Add(analysClassInfo);
+                    }
+                    
                 }
             }
-            
+
+            _class = clasList;
             return _class;
         }
         private IEnumerable<Diagnostic> SearchError(SyntaxNode node) => node.GetDiagnostics();

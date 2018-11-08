@@ -507,12 +507,6 @@ namespace Client.CodeCompare {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceContract/GetData", ReplyAction="http://tempuri.org/IServiceContract/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(string value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceContract/CreateNewDB", ReplyAction="http://tempuri.org/IServiceContract/CreateNewDBResponse")]
-        bool CreateNewDB();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceContract/CreateNewDB", ReplyAction="http://tempuri.org/IServiceContract/CreateNewDBResponse")]
-        System.Threading.Tasks.Task<bool> CreateNewDBAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceContract/GetComipeType", ReplyAction="http://tempuri.org/IServiceContract/GetComipeTypeResponse")]
         string[] GetComipeType(string lang);
         
@@ -607,14 +601,6 @@ namespace Client.CodeCompare {
         
         public System.Threading.Tasks.Task<string> GetDataAsync(string value) {
             return base.Channel.GetDataAsync(value);
-        }
-        
-        public bool CreateNewDB() {
-            return base.Channel.CreateNewDB();
-        }
-        
-        public System.Threading.Tasks.Task<bool> CreateNewDBAsync() {
-            return base.Channel.CreateNewDBAsync();
         }
         
         public string[] GetComipeType(string lang) {

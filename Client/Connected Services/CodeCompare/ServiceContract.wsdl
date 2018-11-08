@@ -14,12 +14,6 @@
   <wsdl:message name="IServiceContract_GetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataResponse" />
   </wsdl:message>
-  <wsdl:message name="IServiceContract_CreateNewDB_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreateNewDB" />
-  </wsdl:message>
-  <wsdl:message name="IServiceContract_CreateNewDB_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreateNewDBResponse" />
-  </wsdl:message>
   <wsdl:message name="IServiceContract_GetComipeType_InputMessage">
     <wsdl:part name="parameters" element="tns:GetComipeType" />
   </wsdl:message>
@@ -79,10 +73,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceContract/GetData" message="tns:IServiceContract_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceContract/GetDataResponse" message="tns:IServiceContract_GetData_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CreateNewDB">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceContract/CreateNewDB" message="tns:IServiceContract_CreateNewDB_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceContract/CreateNewDBResponse" message="tns:IServiceContract_CreateNewDB_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetComipeType">
       <wsdl:input wsaw:Action="http://tempuri.org/IServiceContract/GetComipeType" message="tns:IServiceContract_GetComipeType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServiceContract/GetComipeTypeResponse" message="tns:IServiceContract_GetComipeType_OutputMessage" />
@@ -124,15 +114,6 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetData">
       <soap:operation soapAction="http://tempuri.org/IServiceContract/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CreateNewDB">
-      <soap:operation soapAction="http://tempuri.org/IServiceContract/CreateNewDB" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
