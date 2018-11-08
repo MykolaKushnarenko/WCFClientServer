@@ -17,6 +17,11 @@ namespace DetailsAnalysis
         private Solution _solution;
         private IEnumerable<Project> _projects;
         private IEnumerable<AnalysClassInfo> _class;
+
+        public IEnumerable<AnalysClassInfo> Class
+        {
+            get { return _class; }
+        }
         public AnalysisRoslynCore()
         {
             _workspace = MSBuildWorkspace.Create();
@@ -45,12 +50,6 @@ namespace DetailsAnalysis
         }
         private IEnumerable<Diagnostic> SearchError(SyntaxNode node) => node.GetDiagnostics();
         private IEnumerable<TypeSyntax> GetTypeUsing(SyntaxNode node) => node.DescendantNodes().OfType<VariableDeclarationSyntax>().Select(decl => decl.Type);
-
-        private IEnumerable<MethodDeclarationSyntax> GetAllMethodNames(SyntaxNode node)
-        {
-            var res = node.DescendantNodes().OfType<MethodDeclarationSyntax>().ToString();
-            return node.DescendantNodes().OfType<MethodDeclarationSyntax>();
-        }
 
         private IEnumerable<ClassDeclarationSyntax> GetClasses(SyntaxNode node)
         {

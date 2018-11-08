@@ -67,8 +67,13 @@ namespace DetailsAnalysis.Core
             SetClassName();
             IsError();
             ToStringFormat();
+            InitMethodCollection();
         }
 
+        private void InitMethodCollection()
+        {
+            _methods = _simanticNodesMethods.Select(nodeMethod => new AnalysMethodInfo(nodeMethod, _semanticModel));
+        }
         private void IsError()
         {
             List<string> listError = new List<string>();
@@ -90,12 +95,6 @@ namespace DetailsAnalysis.Core
         private IEnumerable<Diagnostic> SearchError(SyntaxNode node) => node.GetDiagnostics();
         private IEnumerable<TypeSyntax> GetTypeUsing(SyntaxNode node) => node.DescendantNodes().OfType<VariableDeclarationSyntax>().Select(decl => decl.Type);
 
-        private IEnumerable<MethodDeclarationSyntax> GetAllMethod(SyntaxNode node)
-        {
-            var res = node.DescendantNodes().OfType<MethodDeclarationSyntax>().ToString();
-            return node.DescendantNodes().OfType<MethodDeclarationSyntax>();
-        }
-
         private IEnumerable<ClassDeclarationSyntax> GetDeclarationSyntaxsClasses(SyntaxNode node)
         {
             return node.DescendantNodes().OfType<ClassDeclarationSyntax>();
@@ -105,7 +104,11 @@ namespace DetailsAnalysis.Core
         {
             return _classDeclarationSyntax.BaseList;
         }
-
+        private IEnumerable<MethodDeclarationSyntax> GetAllMethodNames(SyntaxNode node)
+        {
+            var res = node.DescendantNodes().OfType<MethodDeclarationSyntax>().ToString();
+            return node.DescendantNodes().OfType<MethodDeclarationSyntax>();
+        }
         private void ToStringFormat()
         {
             _stringFormatAllTypeInClass = GetTypeUsing(_thisNode).Select(type => ((ITypeSymbol)_semanticModel.GetSymbolInfo(type).Symbol).ToString());

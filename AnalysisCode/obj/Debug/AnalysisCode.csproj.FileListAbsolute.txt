@@ -20,4 +20,3 @@ D:\repos\WCFClientServer\AnalysisCode\bin\Debug\AnalysisCode.pdb
 D:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.csproj.CoreCompileInputs.cache
 D:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.dll
 D:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.pdb
-D:\repos\WCFClientServer\AnalysisCode\obj\Debug\AnalysisCode.csprojAssemblyReference.cache
