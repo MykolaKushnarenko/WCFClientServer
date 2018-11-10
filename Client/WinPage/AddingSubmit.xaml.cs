@@ -182,6 +182,7 @@ namespace Client.WinPage
         {
             LoadWindowParam param2 = new LoadWindowParam()
             {
+                
                 Name = NameAuthor.Text,
                 Description = Description.Text,
                 TypeCompile = typeCompiler,
@@ -192,7 +193,8 @@ namespace Client.WinPage
                 CompareLocal = CompareMy.IsChecked ?? true,
                 Client = _client,
                 OnBlur = _onBlur,
-                OffBlur = _offBlur
+                OffBlur = _offBlur,
+                RoslynAnalysis = RoslynAnalysCheckBox.IsChecked ?? true
             };
             //LoadWindowParam param = new LoadWindowParam(NameAuthor.Text, Description.Text, typeCompiler, _search, GetCode(), FileName, ref _resultCompare, CompareMy.IsChecked ?? true, _client, _onBlur, _offBlur);
             return param2;

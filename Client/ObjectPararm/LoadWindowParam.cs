@@ -20,10 +20,11 @@ namespace Client.ObjectPararm
         public Action OnBlur;
         public Action OffBlur;
         public string SolutionPath;
+        public bool RoslynAnalysis;
 
 
         public LoadWindowParam(){}
-        public LoadWindowParam(string name, string description, string type, bool isSearch, byte[] code, string Filename, bool compareLocal, ServiceContractClient client, Action onBlure, Action offBlure)
+        public LoadWindowParam(string name, string description, string type, bool isSearch, byte[] code, string Filename, bool compareLocal, ServiceContractClient client, Action onBlure, Action offBlure, bool roslynAnalys)
         {
             Name = name;
             Code = code;
@@ -35,6 +36,7 @@ namespace Client.ObjectPararm
             Client = client;
             OnBlur = onBlure;
             OffBlur = offBlure;
+            RoslynAnalysis = roslynAnalys;
         }
 
     }

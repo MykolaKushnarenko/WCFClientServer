@@ -45,7 +45,8 @@ namespace Client.WinPage
                 IsSearch = _param.IsSearch,
                 FileMane = _param.FileName,
                 Code = _param.Code,
-                CompareLocal = _param.CompareLocal
+                CompareLocal = _param.CompareLocal,
+                IsAllAnalysis = _param.RoslynAnalysis
 
             };
             if (_param.SolutionPath != null)
@@ -61,6 +62,7 @@ namespace Client.WinPage
 
                     memoryStream.Seek(0, SeekOrigin.Begin);
                     sendParams.Solution = memoryStream.ToArray();
+                    sendParams.IsAllAnalysis = true;
                 }
             }
             
@@ -82,6 +84,7 @@ namespace Client.WinPage
             _resultCompare.TokkingChildCode = resultFromSerrver.TokkingChildCode;
             _resultCompare.TokkingMainCode = resultFromSerrver.TokkingMainCode;
             _resultCompare.IsLocalCompare = resultFromSerrver.IsLocalCompare;
+            _resultCompare.DeteilAnalysRoslyn = resultFromSerrver.DeteilAnalysRoslyn;
         }
     }
 }

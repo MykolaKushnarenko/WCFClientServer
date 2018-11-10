@@ -30,8 +30,17 @@ namespace Client.WinPage
             _mainCode = _resultFromServer.MainCodeText;
             _chaildCode = _resultFromServer.ChildCodeText;
             InitializeComponent();
+            ShowButton();
             SetTextBoxes();
             Compare();
+        }
+
+        private void ShowButton()
+        {
+            if (_resultFromServer.DeteilAnalysRoslyn != null)
+            {
+                DAnalysBut.Visibility = Visibility.Visible;
+            }
         }
         private void Compare() => _resultFromServer.ResultCompare.ToList().ForEach(x => ResultCompareList.Items.Add(x));
         private void SetTextBoxes()
@@ -41,5 +50,9 @@ namespace Client.WinPage
         }
 
 
+        private void DAnalysBut_OnClick(object sender, RoutedEventArgs e)
+        {
+            new ResultAnalysRoslyn(_resultFromServer).Show();
+        }
     }
 }

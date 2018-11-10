@@ -15,8 +15,6 @@ namespace Service.DateObjectSender.DetailAnalyz
         [DataMember]
         public IEnumerable<string> AllTypeInMethod;
 
-        private DAnalysMethodObject(){}
-
         public static DAnalysMethodObject CreateSendObject(AnalysMethodInfo method)
         {
             return new DAnalysMethodObject()

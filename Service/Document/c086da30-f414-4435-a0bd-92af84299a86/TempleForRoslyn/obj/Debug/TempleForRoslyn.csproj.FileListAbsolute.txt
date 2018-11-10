@@ -1,0 +1,10 @@
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\bin\Debug\TempleForRoslyn.exe.config
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\bin\Debug\TempleForRoslyn.exe
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\bin\Debug\TempleForRoslyn.pdb
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\obj\Debug\TempleForRoslyn.csprojAssemblyReference.cache
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\obj\Debug\TempleForRoslyn.csproj.CoreCompileInputs.cache
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\obj\Debug\TempleForRoslyn.exe
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\obj\Debug\TempleForRoslyn.pdb
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\bin\Debug\DotNetZip.dll
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\bin\Debug\DotNetZip.xml
+C:\Users\nikok\source\repos\TempleForRoslyn\TempleForRoslyn\obj\Debug\TempleForRoslyn.csproj.CopyComplete

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Service.DateObjectSender.DetailAnalyz;
 
 namespace Service.DateObjectSender
 {
@@ -18,5 +19,7 @@ namespace Service.DateObjectSender
         public List<string> TokkingMainCode { get; set; }
         [DataMember]
         public List<string> TokkingChildCode { get; set; }
+        [DataMember]
+        public IEnumerable<DAnalysClassObject> DeteilAnalysRoslyn{ get; set; }
     }
 }

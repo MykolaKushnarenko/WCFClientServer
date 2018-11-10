@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Service.DateObjectSender" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Service.DateObjectSender" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:5339/ServiceContract.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Service.DateObjectSender.DetailAnalyz" />
   <xs:import schemaLocation="http://localhost:5339/ServiceContract.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="AddingCodeObject">
     <xs:sequence>
@@ -18,11 +19,12 @@
   <xs:complexType name="ResultCompareObject">
     <xs:sequence>
       <xs:element minOccurs="0" name="ChildCodeText" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Service.DateObjectSender.DetailAnalyz" minOccurs="0" name="DeteilAnalysRoslyn" nillable="true" type="q1:ArrayOfDAnalysClassObject" />
       <xs:element minOccurs="0" name="IsLocalCompare" type="xs:boolean" />
       <xs:element minOccurs="0" name="MainCodeText" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResultCompare" nillable="true" type="q1:ArrayOfstring" />
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TokkingChildCode" nillable="true" type="q2:ArrayOfstring" />
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TokkingMainCode" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResultCompare" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TokkingChildCode" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TokkingMainCode" nillable="true" type="q4:ArrayOfstring" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ResultCompareObject" nillable="true" type="tns:ResultCompareObject" />

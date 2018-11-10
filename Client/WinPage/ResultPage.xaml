@@ -23,7 +23,7 @@
     <Grid>
         <materialDesign:TransitioningContent  x:Name="TransitioningContent" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft , Duration=0:0:0:1}">
             <StackPanel >
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 0 20">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 0 0">
                     <materialDesign:Card UniformCornerRadius="20" Padding="13" Height="422" Width="400" Margin="5 0 0 0" >
                         <TextBox x:Name="MainCodeText" Background="{DynamicResource MaterialDesignPaper}"
                                  FontFamily="{DynamicResource MaterialDesignFont}"
@@ -40,6 +40,7 @@
                     </materialDesign:Card>
                 </StackPanel>
                 <ListView x:Name="ResultCompareList" Height="97" Width="850"  HorizontalAlignment="Right"/>
+                <Button x:Name="DAnalysBut" Content="Show Analys Roslyn" Width="150" Height="25" Visibility="Hidden" Click="DAnalysBut_OnClick"/>
             </StackPanel>
         </materialDesign:TransitioningContent>
 

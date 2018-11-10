@@ -215,3 +215,5 @@ D:\repos\WCFClientServer\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
 D:\repos\WCFClientServer\Client\obj\Debug\Client.csproj.CopyComplete
 D:\repos\WCFClientServer\Client\obj\Debug\Client.exe
 D:\repos\WCFClientServer\Client\obj\Debug\Client.pdb
+D:\repos\WCFClientServer\Client\obj\Debug\WinPage\ResultAnalysRoslyn.g.cs
+D:\repos\WCFClientServer\Client\obj\Debug\WinPage\ResultAnalysRoslyn.baml

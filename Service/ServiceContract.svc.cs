@@ -110,16 +110,20 @@ namespace Service
                 CreateZipFromSream(param.Solution);
             }
             bool isOver = await _db.AddingSubmit(param.Name, param.Description, param.CompileType, param.Code, param.IsSearch, param.FileMane);
-            if (param.IsSearch)
+            if (param.IsAllAnalysis)
             {
-                var res = _analysis.Class.Select(Class =>
+                _resultCompare.DeteilAnalysRoslyn = _analysis.Class.Select(Class =>
                 {
                     if (Class != null) return DAnalysClassObject.CreateSendObject(Class);
                     return null;
                 });
+                _resultCompare.DeteilAnalysRoslyn.Any();
+
+            }
+            if (param.IsSearch)
+            {
                 GetResultList();
             }
-
             if (param.CompareLocal)
             {
                 _resultCompare.TokkingMainCode = _db.GetMainCodeList();

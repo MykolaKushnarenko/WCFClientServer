@@ -26,6 +26,7 @@
     <MetadataFile FileName="ServiceContract6.xsd" MetadataType="Schema" ID="f97b4103-4dc3-4f74-b62c-93cac2332dc3" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?xsd=xsd0" />
     <MetadataFile FileName="ServiceContract9.xsd" MetadataType="Schema" ID="563745a6-6913-420a-9c58-6bdaa475f218" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?xsd=xsd3" />
     <MetadataFile FileName="ServiceContract.xsd" MetadataType="Schema" ID="f80ebaa1-f590-4b2d-987f-efe918d4e09a" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceContract1.xsd" MetadataType="Schema" ID="0b8f2851-9f80-42b6-b755-e8821514f776" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?xsd=xsd4" />
     <MetadataFile FileName="ServiceContract.disco" MetadataType="Disco" ID="07f1e992-60ea-41d6-b810-a72c3751f972" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?disco" />
     <MetadataFile FileName="ServiceContract.wsdl" MetadataType="Wsdl" ID="3391e82c-f15c-48e7-a0cc-3bf02b5011d4" SourceId="1" SourceUrl="http://localhost:5339/ServiceContract.svc?wsdl" />
   </Metadata>
