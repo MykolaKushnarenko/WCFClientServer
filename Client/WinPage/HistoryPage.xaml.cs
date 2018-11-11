@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Client.CodeCompare;
 
 namespace Client.WinPage
 {
@@ -20,14 +21,21 @@ namespace Client.WinPage
     /// </summary>
     public partial class HistoryPage : UserControl
     {
-        public HistoryPage()
+        private ServiceContractClient _client;
+        public HistoryPage(ServiceContractClient client)
         {
+            _client = client;
             InitializeComponent();
             UpdateHistoryList();
         }
 
-        private void UpdateHistoryList()
+        private async void UpdateHistoryList()
         {
+            string[] history = await _client.GetListHistoryAsync();
+            foreach (var log in history)
+            {
+                FileListCompil.Items.Add(log);
+            }
             //DataExchangeWithServer getHistory = new DataExchangeWithServer("GetListHistory", "GET", "", "application/json", true);
             //string result = await getHistory.SendToServer();
             //if (result == null) return;

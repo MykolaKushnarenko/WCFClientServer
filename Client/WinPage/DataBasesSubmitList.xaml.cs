@@ -23,9 +23,10 @@ namespace Client.WinPage
     public partial class DataBasesSubmitList : UserControl
     {
         public Action<ResultCompareObject> _resultMethod;
-
-        public DataBasesSubmitList(Action<ResultCompareObject> method)
+        private ServiceContractClient _client;
+        public DataBasesSubmitList(Action<ResultCompareObject> method, ServiceContractClient client)
         {
+            _client = client;
             _resultMethod = method;
             InitializeComponent();
             LoadListSubmit();
@@ -33,6 +34,11 @@ namespace Client.WinPage
 
         private  void LoadListSubmit()
         {
+            string[] submitsFromDb = _client.GetListSubmit();
+            foreach (var submit in submitsFromDb)
+            {
+                SubmitList.Items.Add(submit);
+            }
             //DataExchangeWithServer getAllSubmit = new DataExchangeWithServer("GetListSubmit", "GET", "", "application/json", true);
             //string result = await getAllSubmit.SendToServer();
             //if (result == null) return;
@@ -45,12 +51,13 @@ namespace Client.WinPage
 
         private void SubmitList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string wordFromItemsList = SubmitList.SelectedValue.ToString();
-            //string[] get = wordFromItemsList?.Split(new char[] { '|' });
+            string wordFromItemsList = SubmitList.SelectedValue.ToString();
+            string[] get = wordFromItemsList?.Split(new char[] { '|' });
+            ResultCompareObject result = _client.SearchFromListSubmit(get[get.Length - 1]);
             //DataExchangeWithServer getResultCompareFromSubmitList = new DataExchangeWithServer("SearchFromListSubmit", "POST", $"tagForSearch={get[get.Length - 1]}", "application/x-www-form-urlencoded", true);
             //string result = await getResultCompareFromSubmitList.SendToServer();
             //if (result == null) return;
-            //_resultMethod(JsonConvert.DeserializeObject<ResultCompareObject>(result));
+            _resultMethod(result);
 
 
         }

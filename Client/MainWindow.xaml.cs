@@ -75,11 +75,11 @@ namespace Client
                     break;
                 case 2:
                     GridContentAction.Children.Clear();
-                    GridContentAction.Children.Add(new DataBasesSubmitList(Result));
+                    GridContentAction.Children.Add(new DataBasesSubmitList(Result,client));
                     break;
                 case 3:
                     GridContentAction.Children.Clear();
-                    GridContentAction.Children.Add(new HistoryPage());
+                    GridContentAction.Children.Add(new HistoryPage(client));
                     break;
             }
             MoveOnSecectItem(index);
