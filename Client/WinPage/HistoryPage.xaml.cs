@@ -29,22 +29,13 @@ namespace Client.WinPage
             UpdateHistoryList();
         }
 
-        private async void UpdateHistoryList()
+        private void UpdateHistoryList()
         {
-            string[] history = await _client.GetListHistoryAsync();
+            string[] history = _client.GetListHistory();
             foreach (var log in history)
             {
                 FileListCompil.Items.Add(log);
             }
-            //DataExchangeWithServer getHistory = new DataExchangeWithServer("GetListHistory", "GET", "", "application/json", true);
-            //string result = await getHistory.SendToServer();
-            //if (result == null) return;
-            //List<string> listHistory = JsonConvert.DeserializeObject<List<string>>(result);
-            //FileListCompil.Items.Clear();
-            //foreach (var desc in listHistory)
-            //{
-            //    FileListCompil.Items.Add(desc);
-            //}
         }
     }
 }
