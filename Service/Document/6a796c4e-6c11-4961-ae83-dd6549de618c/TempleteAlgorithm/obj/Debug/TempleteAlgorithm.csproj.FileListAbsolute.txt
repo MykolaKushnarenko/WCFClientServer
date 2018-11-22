@@ -1,5 +1,0 @@
-c:\users\nikok\source\repos\TempleteAlgorithm\TempleteAlgorithm\bin\Debug\TempleteAlgorithm.dll
-c:\users\nikok\source\repos\TempleteAlgorithm\TempleteAlgorithm\bin\Debug\TempleteAlgorithm.pdb
-c:\users\nikok\source\repos\TempleteAlgorithm\TempleteAlgorithm\obj\Debug\TempleteAlgorithm.csproj.CoreCompileInputs.cache
-c:\users\nikok\source\repos\TempleteAlgorithm\TempleteAlgorithm\obj\Debug\TempleteAlgorithm.dll
-c:\users\nikok\source\repos\TempleteAlgorithm\TempleteAlgorithm\obj\Debug\TempleteAlgorithm.pdb

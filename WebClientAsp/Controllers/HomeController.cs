@@ -1,0 +1,64 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using WebClientAsp.CodeCompare;
+using WebClientAsp.Models;
+
+namespace WebClientAsp.Controllers
+{
+    public class HomeController : Controller
+    {
+        // GET: Home
+        ServiceContractClient _client = new ServiceContractClient();
+        public ActionResult Index()
+        {
+            ViewBag.Date = _client.GetDataAsync("123").Result;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Buy(CompareInfo purchase)
+        {
+            string s1 = purchase.Address;
+            string s2 = purchase.Person;
+            return View("~/Views/Home/ResCompare.cshtml");
+        }
+        [HttpPost]
+        public  ActionResult Upload(CompareInfo infoCode)
+        {
+            AddingCodeObject parem = new AddingCodeObject(); 
+            byte[] code;
+            var a = infoCode.Address;
+            var s = infoCode.Person;
+            if (infoCode.upload != null)
+            {
+                using (StreamReader reader = new StreamReader(infoCode.upload.InputStream))
+                {
+                    code = reader.CurrentEncoding.GetBytes(reader.ReadToEnd());
+                    
+                }
+
+                parem.Name = infoCode.Person;
+                parem.CompileType = "dotnet";
+                parem.FileMane = infoCode.upload.FileName;
+                parem.Code = code;
+                parem.IsSearch = true;
+                parem.Description = infoCode.Address;
+
+            }
+
+            var res = _client.AddCodeAsync(parem).Result;
+
+            return View("~/Views/Home/ResCompare.cshtml");
+        }
+
+        public ActionResult ResCompare()
+        {
+            return View();
+        }
+    }
+}

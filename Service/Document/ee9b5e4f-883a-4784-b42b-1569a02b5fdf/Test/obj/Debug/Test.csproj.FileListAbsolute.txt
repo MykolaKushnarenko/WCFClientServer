@@ -1,6 +1,0 @@
-C:\Users\nikok\source\repos\TempleForRoslyn\Test\bin\Debug\Test.dll
-C:\Users\nikok\source\repos\TempleForRoslyn\Test\bin\Debug\Test.pdb
-C:\Users\nikok\source\repos\TempleForRoslyn\Test\obj\Debug\Test.csprojAssemblyReference.cache
-C:\Users\nikok\source\repos\TempleForRoslyn\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
-C:\Users\nikok\source\repos\TempleForRoslyn\Test\obj\Debug\Test.dll
-C:\Users\nikok\source\repos\TempleForRoslyn\Test\obj\Debug\Test.pdb
