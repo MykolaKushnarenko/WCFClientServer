@@ -905,8 +905,6 @@ namespace DataBasesUtil
             return hashPassword;
         }
 
-
-
         private void DefoultValue()
         {
             string defLang = "insert into language (denomination)"

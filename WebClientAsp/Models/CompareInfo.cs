@@ -9,7 +9,7 @@ namespace WebClientAsp.Models
     {
         public string Person { get; set; }
         public string Address { get; set; }
-        public string Compile { get; set; }
+        public string Language { get; set; }
         public HttpPostedFileBase upload { get; set; }
     }
 }

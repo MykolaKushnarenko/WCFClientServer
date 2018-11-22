@@ -15,18 +15,9 @@ namespace WebClientAsp.Controllers
         ServiceContractClient _client = new ServiceContractClient();
         public ActionResult Index()
         {
-            ViewBag.Date = _client.GetDataAsync("123").Result;
-
             return View();
         }
-
-        [HttpPost]
-        public ActionResult Buy(CompareInfo purchase)
-        {
-            string s1 = purchase.Address;
-            string s2 = purchase.Person;
-            return View("~/Views/Home/ResCompare.cshtml");
-        }
+     
         [HttpPost]
         public  ActionResult Upload(CompareInfo infoCode)
         {
@@ -43,7 +34,7 @@ namespace WebClientAsp.Controllers
                 }
 
                 parem.Name = infoCode.Person;
-                parem.CompileType = "dotnet";
+                parem.CompileType = infoCode.Language;
                 parem.FileMane = infoCode.upload.FileName;
                 parem.Code = code;
                 parem.IsSearch = true;
