@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -11,16 +11,24 @@
     <title>ResCompare</title>
 </head>
 <body>
-@using(Html.BeginForm("Buy", "Home", FormMethod.Post))
-{
-    <table>
-        <tr><td><p>Введите свое имя </p></td>
-            <td><input type="text" name="Person" /> </td></tr>
-        <tr><td><p>Введите адрес :</p></td>
-            <td><input type="text" name="Address" /> </td></tr>
-        <tr><td><input type="submit" value="Отправить" /> </td>
-            <td></td></tr>
-    </table>
-}
+    <div id="header" class="header">
+        <p>CodeMpare</p>
+    </div>
+    <div id="box1" class="boxResult blurred-bg tinted">
+        <div class="content">
+            <h1>Compare your Code</h1>
+            <div>
+                <textarea readonly class="leftBlokInput textareaRes">@ViewBag.Result.MainCodeText </textarea>
+                <textarea readonly class="rightBlokInput textareaRes">@ViewBag.Result.ChildCodeText</textarea>
+            </div>
+            <textarea class="downArea textareaRes">
+                @foreach (var result in ViewBag.Result.ResultCompare)
+                {
+                    @result;
+                    @ViewBag.Space;
+                }
+            </textarea>
+        </div>
+    </div>
 </body>
 </html>

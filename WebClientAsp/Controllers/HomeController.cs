@@ -43,7 +43,8 @@ namespace WebClientAsp.Controllers
             }
 
             var res = _client.AddCodeAsync(parem).Result;
-
+            ViewBag.Result = res;
+            ViewBag.Space = "\n";
             return View("~/Views/Home/ResCompare.cshtml");
         }
 
